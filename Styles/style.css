@@ -1,0 +1,447 @@
+@font-face {
+	font-family: 'icones';
+	src: url(icones.ttf);
+}
+
+body {
+	font-family: 'Montserrat', sans-serif;
+}
+
+/* ================================================
+|||		|	 1 PARTE: CORPO DO CÓDIGO	  |     |||
+||+-----+------------------+--------------+-----+||
+|||  Autor: Crystian Ataide | Data: 14/05/2023	|||
+||+------------------------+--------------------+||
+|||         Descrição: CSS do Cabecalho         |||
+=================================================*/
+header {
+	background: linear-gradient(135deg, #0b8c9f 0%, #0b8c9f 25%, #9ad2c5 75%, #9ad2c5 100%);
+}
+
+.cabecalho_inicio {
+	display: flex;
+	align-items: center;
+	padding-right: 15px;
+	justify-content: center;
+}
+
+.cabecalho_inicio .img_estacio {
+	width: 300px;
+}
+
+.cabecalho_inicio .img_carrinho {
+	width: 75px;
+}
+
+.cabecalho{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.img_logo {
+	display: flex;
+	align-items: center;
+	padding-right: 15px;
+}
+
+.img_estacio {
+	width: 200px;
+}
+
+.img_carrinho{
+	width: 55px;
+}
+
+.barra_topo{
+	flex-direction: row;
+	padding-left: 10px;
+	display: flex;
+}
+
+.msg_name{
+	display: flex;
+	align-items: center;
+	padding: 1rem;
+}
+
+.botao_menu {
+	padding: 0.5rem;
+}
+
+.menu_admin {
+	list-style:none;
+	float:left;
+	width: 100%;
+}
+
+.menu_admin li {
+	position: relative;
+	font-size: 1.2rem;
+}
+
+.menu_admin li a {
+	color:#FFF; 
+	text-decoration:none; 
+	padding: 1rem 1rem; 
+	display:block;
+}
+
+.menu_admin li a:hover {
+	/* background: #9ad2c5; */
+	color: #FFF;
+	font-weight: 600;
+	transform: scale(101%);
+}
+
+.menu_admin li a img {
+	/* background: #0b8c9f; */
+	width: 30px;
+}
+
+.menu_admin li a img:hover {
+	filter: invert();
+}
+
+.menu_admin li ul {
+	background: #107281;
+	position:absolute;
+	border-radius: 15px;
+	display:none;
+	top:50px;
+	left:0;
+}
+
+.menu_admin li:hover ul, .menu li.over ul{
+	display:block;
+}
+
+.menu_admin li ul li{
+	border-bottom:1px solid #FFF;
+	/* display:block; */
+	width: 200px;
+	text-align: left;
+}
+
+/* ================================================
+|||		|	 2 PARTE: CORPO DO CÓDIGO	  |     |||
+||+-----+------------------+--------------+-----+||
+|||  Autor: Crystian Ataide | Data: 22/04/2023	|||
+||+------------------------+--------------------+||
+|||      Descrição: CSS da Página de Login      |||
+=================================================*/
+.container {
+	width: 400px;
+	margin: 100px auto;
+	border-radius: 20px;
+	background-color: #fff;
+	padding: 10px 60px 20px;
+	box-shadow: 0px 0px 20px #d7c5c5;
+}
+
+.login-form h2 {
+	font-size: 35px;
+	margin: 30px;
+	text-align: center;
+}
+
+label {
+	display: block;
+	margin-bottom: 8px;
+}
+
+input {
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	display: block;
+	font-size: 16px;
+	margin-bottom: 20px;
+	padding: 10px;
+	width: 100%;
+}
+
+.cad_login--titulo {
+	font-size: 13px;
+}
+
+.cad_login--btn {
+	border: 0px;
+	cursor: pointer;
+	font-size: 14px;
+	color: #116999;
+	border-radius: 7px;
+	font-weight: normal;
+	border-color: initial;
+	text-decoration: underline;
+	background-color: transparent;
+}
+
+.cad_login--btn:hover {
+	color: #082875;
+}
+
+input[type="submit"] {
+	background-color: #4CAF50;
+	border: none;
+	border-radius: 4px;
+	color: #fff;
+	cursor: pointer;
+	font-size: 16px;
+	margin-top: 10px;
+	padding: 12px;
+	width: 100%;
+}
+
+input[type="submit"]:hover {
+	background-color: #3e8e41;
+	transform: scale(102%);
+}
+
+/* ================================================
+|||		|	 2 PARTE: CORPO DO CÓDIGO	  |     |||
+||+-----+------------------+--------------+-----+||
+|||  Autor: Crystian Ataide | Data: 22/04/2023	|||
+||+------------------------+--------------------+||
+|||     Descrição: CSS da Página de Escolha     |||
+=================================================*/
+.main-escolha {
+	width: 100%;
+}
+
+.escolha {
+	display: flex;
+	justify-content: space-between;
+	margin: auto auto;
+	padding: 120px 0;
+}
+
+.escolha.habilitado {
+    width: 90%;
+}
+
+.escolha.desabilitado {
+    width: 800px;
+}
+
+.escolha h2 {
+	font-size: 30px;
+	font-weight: bold;
+	padding-bottom: 20px;
+}
+
+.escolha img {
+	width: 70%;
+}
+
+.lista-usuarios,
+.lista-produtos,
+.lista-fornecedores {
+	position: relative;
+	text-align: center;
+	background: #fefefe;
+	width: 35%;
+	margin: 0 4.5%;
+	padding: 30px 20px;
+	box-sizing: border-box;
+	border-radius: 40px;
+	border: solid #0b8c9f;
+	border-width: 10px 3px;
+	transition: 0.3s all;
+}
+
+.lista-usuarios:hover,
+.lista-produtos:hover,
+.lista-fornecedores:hover {
+	border-color: #9ad2c5;
+	transform: scale(105%);
+	cursor: pointer;
+	padding: 30px 20px;
+}
+
+/* ================================================
+|||		|	 2 PARTE: CORPO DO CÓDIGO	  |     |||
+||+-----+------------------+--------------+-----+||
+|||  Autor: Crystian Ataide | Data: 01/05/2023	|||
+||+------------------------+--------------------+||
+|||     Descrição: CSS da Página de Cadastro    |||
+=================================================*/
+.form_cadastro {
+	width: 550px;
+    margin: 0 auto;
+    padding: 3em 0;
+}
+
+.cadastro {
+	background-color: #fff;
+	border-radius: 20px;
+	box-shadow: 0px 0px 20px #d7c5c5;
+	margin: 100px auto;
+	padding: 10px 75px 75px;
+	width: 400px;
+}
+
+.cadastro h2 {
+	font-size: 32px;
+	margin: 30px 0;
+	text-align: center;
+}
+
+.cad_form {
+    margin: 40px 0;
+}
+
+/* ================================================
+|||		|	 2 PARTE: CORPO DO CÓDIGO	  |     |||
+||+-----+------------------+--------------+-----+||
+|||  Autor: Crystian Ataide | Data: 01/05/2023	|||
+||+------------------------+--------------------+||
+|||     Descrição: CSS da Página de Exibição    |||
+=================================================*/
+.tabela {
+	box-shadow: 0px 0px 20px #d7c5c5;
+	background-color: #fff;
+	padding: 10px 60px 60px;
+	border-radius: 20px;
+	margin: 100px auto;
+	width: 1000px;
+}
+
+.area_titulo h2 {
+	text-align: center;
+	font-size: 35px;
+	margin: 20px;
+}
+
+.area_titulo a {
+	background: #9ad2c5;
+	transition: 0.4s all;
+	align-items: center;
+	position: relative;
+	border: 3px solid #9ad2c5;
+	border-radius: 50%;
+	padding: 10px;
+}
+
+.area_titulo a:hover {
+	border-radius: 5px;
+}
+
+.area_titulo img {
+	transition: 0.4S all;
+	position: relative;
+	padding: 3px;
+	bottom: -6px;
+	width: 20px;
+}
+
+.area_titulo a:hover img {
+	transform: rotate(180deg);
+}
+
+.area_titulo p {
+	text-decoration: none;
+	position: absolute;
+	font-size: 17px;
+	padding: 10px;
+	color: #000;
+	left: -500px;
+	opacity: 0;
+}
+
+.area_titulo a:hover p {
+	animation: slideInText 0.3s 0.2s forwards;
+	display: inline-block;
+	position: relative;
+	left: -60px;
+	opacity: 0;
+}
+
+@keyframes slideInText {
+	0% {
+		transform: translateX(0);
+		opacity: 0;
+	}
+	100% {
+		transform: translateX(100%);
+		color: #000;
+		opacity: 1;
+	}
+}
+
+/* .area_titulo a:hover::after {
+	background: linear-gradient(135deg, #9ad2c5 0%, #9ad2c5 35%, #0b8c9f 75%, #0b8c9f 100%);
+	animation: slideInText 0.3s 0.2s forwards;
+	padding: 12px 12px 12px 5px;
+	border-image-slice: 1;
+	border-start-end-radius: 100%;
+	border-end-end-radius: 100%;
+	display: inline-block;
+	content: 'Incluir';
+	position: relative;
+	opacity: 0;
+	top: -15px;
+}*/
+  
+table {
+	width: 100%;
+	margin-top: 30px;
+}
+
+.tabela_cabecalho {
+	font-weight: 600;
+	height: 5rem;
+}
+
+.tabela_cabecalho th {
+	border-bottom: 3px solid #0b8c9f;
+	padding: 30px;
+}
+
+.tabela_desc {
+	transition: 0.2s all;
+	position: relative;
+}
+
+.tabela_desc .desc {
+	border-bottom: 3px solid #0b8c9f;
+	text-align: center;
+	font-size: 1.2rem;
+	padding: 5px;
+}
+
+.tabela_desc img {
+    transform: translateY(-50%);
+	visibility: hidden;
+	position: absolute;
+	width: 15px;
+}
+
+.tabela_desc:hover {
+	background-color: #9ad2c5;
+	transform: scale(102%);
+}
+
+.tabela_desc:hover .acao img{
+	visibility: visible;
+}
+
+.acao {
+	justify-content: center;
+    align-items: center;
+	display: flex;
+}
+
+.acao a {
+    margin-right: 20px;
+	padding: 5px;
+	transition: 0.2s all;
+}
+
+.acao a:hover {
+    transform: scale(107%);
+}
+
+.botao_excluir {
+	color: red;
+}
