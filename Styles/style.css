@@ -7,12 +7,10 @@ body {
 	font-family: 'Montserrat', sans-serif;
 }
 
-/* ================================================
-|||		|	 1 PARTE: CORPO DO CÓDIGO	  |     |||
+/*=================================================
+|||     |    1 PARTE: HEADER DA PÁGINA    |     |||
 ||+-----+------------------+--------------+-----+||
 |||  Autor: Crystian Ataide | Data: 14/05/2023	|||
-||+------------------------+--------------------+||
-|||         Descrição: CSS do Cabecalho         |||
 =================================================*/
 header {
 	background: linear-gradient(135deg, #0b8c9f 0%, #0b8c9f 25%, #9ad2c5 75%, #9ad2c5 100%);
@@ -118,17 +116,14 @@ header {
 
 .menu_admin li ul li{
 	border-bottom:1px solid #FFF;
-	/* display:block; */
 	width: 200px;
 	text-align: left;
 }
 
 /* ================================================
-|||		|	 2 PARTE: CORPO DO CÓDIGO	  |     |||
+|||		|	 2 PARTE: PÁGINA DE LOGIN	  |     |||
 ||+-----+------------------+--------------+-----+||
 |||  Autor: Crystian Ataide | Data: 22/04/2023	|||
-||+------------------------+--------------------+||
-|||      Descrição: CSS da Página de Login      |||
 =================================================*/
 .container {
 	width: 400px;
@@ -199,11 +194,9 @@ input[type="submit"]:hover {
 }
 
 /* ================================================
-|||		|	 2 PARTE: CORPO DO CÓDIGO	  |     |||
+|||     |   3 PARTE: PÁGINA DE ESCOLHAS   |     |||
 ||+-----+------------------+--------------+-----+||
 |||  Autor: Crystian Ataide | Data: 22/04/2023	|||
-||+------------------------+--------------------+||
-|||     Descrição: CSS da Página de Escolha     |||
 =================================================*/
 .main-escolha {
 	width: 100%;
@@ -212,16 +205,8 @@ input[type="submit"]:hover {
 .escolha {
 	display: flex;
 	justify-content: space-between;
-	margin: auto auto;
+	margin: 0 auto;
 	padding: 120px 0;
-}
-
-.escolha.habilitado {
-    width: 90%;
-}
-
-.escolha.desabilitado {
-    width: 800px;
 }
 
 .escolha h2 {
@@ -241,7 +226,7 @@ input[type="submit"]:hover {
 	text-align: center;
 	background: #fefefe;
 	width: 35%;
-	margin: 0 4.5%;
+	margin: 0 3.5%;
 	padding: 30px 20px;
 	box-sizing: border-box;
 	border-radius: 40px;
@@ -260,11 +245,9 @@ input[type="submit"]:hover {
 }
 
 /* ================================================
-|||		|	 2 PARTE: CORPO DO CÓDIGO	  |     |||
+|||     |   4 PARTE: PÁGINA DE CADASTRO   |     |||
 ||+-----+------------------+--------------+-----+||
 |||  Autor: Crystian Ataide | Data: 01/05/2023	|||
-||+------------------------+--------------------+||
-|||     Descrição: CSS da Página de Cadastro    |||
 =================================================*/
 .form_cadastro {
 	width: 550px;
@@ -291,12 +274,10 @@ input[type="submit"]:hover {
     margin: 40px 0;
 }
 
-/* ================================================
-|||		|	 2 PARTE: CORPO DO CÓDIGO	  |     |||
+/*=================================================
+|||		|   5 PARTE: PÁGINA DE EXIBIÇÃO   |     |||
 ||+-----+------------------+--------------+-----+||
 |||  Autor: Crystian Ataide | Data: 01/05/2023	|||
-||+------------------------+--------------------+||
-|||     Descrição: CSS da Página de Exibição    |||
 =================================================*/
 .tabela {
 	box-shadow: 0px 0px 20px #d7c5c5;
@@ -368,20 +349,6 @@ input[type="submit"]:hover {
 		opacity: 1;
 	}
 }
-
-/* .area_titulo a:hover::after {
-	background: linear-gradient(135deg, #9ad2c5 0%, #9ad2c5 35%, #0b8c9f 75%, #0b8c9f 100%);
-	animation: slideInText 0.3s 0.2s forwards;
-	padding: 12px 12px 12px 5px;
-	border-image-slice: 1;
-	border-start-end-radius: 100%;
-	border-end-end-radius: 100%;
-	display: inline-block;
-	content: 'Incluir';
-	position: relative;
-	opacity: 0;
-	top: -15px;
-}*/
   
 table {
 	width: 100%;
