@@ -9,12 +9,16 @@
                 <div class="cad_form">
                     <label>Nome do Fornecedor</label>
                     <input type="text" id="NameForn" name="NameForn" require autofocus>
+
                     <label>Email</label>
                     <input type="email" id="EmailForn" name="EmailForn" require>
+
                     <label>Telefone</label>
                     <input type="tel" id="TelForn" name="TelForn" require>
+
                     <label>CPF/CNPJ do Fornecedor</label>
                     <input type="text" id="DocForn" name="DocForn" require autofocus>
+
                     <label>Data de Nascimento</label>
                     <input type="date" id="DateForn" name="DateForn" placeholder="dd/mm/yyyy" require autofocus>
                 </div>

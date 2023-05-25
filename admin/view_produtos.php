@@ -7,21 +7,20 @@
         require('../conexao.php');
 
         $select_produto = mysqli_query($conexao, "SELECT * FROM produtos ORDER BY ID_PRO");
-        
+    
         if (mysqli_num_rows($select_produto) > 0) {
 
             $dados_produto = mysqli_fetch_assoc($select_produto);
 
         } else {
-
             echo "<script> alert ('NÃO EXISTEM PRODUTOS CADASTRADOS!');</script>";
             echo "<script> window.location.href='$url_admin';</script>";
         }
     ?>
 		<div class="tabela">
-			<div class="area_titulo">
+            <div class="area_titulo">
                 <h2>PRODUTOS CADASTRADOS</h2>
-                <a href="cad_produto.php">
+                <a href="cad_produtos.php">
                     <img src="../Imagens/incluir.png">
                     <p>Incluir</p>
                 </a>
@@ -49,7 +48,7 @@
                     </td>
                 </tr>
             <?php }while ($dados_produto = mysqli_fetch_assoc($select_produto));?>
-			</table>
+            </table>
 		</div>
     </body>
 </html>

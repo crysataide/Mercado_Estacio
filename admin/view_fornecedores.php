@@ -13,7 +13,6 @@
             $dados_fornecedor = mysqli_fetch_assoc($select_fornecedores);
 
         } else {
-
             echo "<script> alert ('NÃO EXISTEM FORNECEDORES CADASTRADOS!');</script>";
             echo "<script> window.location.href='$url_admin/escolha.php';</script>";
         }
@@ -21,7 +20,7 @@
 		<div class="tabela">
 			<div class="area_titulo">
                 <h2>FORNECEDORES CADASTRADOS</h2>
-                <a href="cad_produto.php">
+                <a href="cad_fornecedor.php">
                     <img src="../Imagens/incluir.png">
                     <p>Incluir</p>
                 </a>

@@ -51,8 +51,8 @@
                     </div>
                 </div>
                 <div class="img_logo">
-                    <a href="../index.html"><img class="img_carrinho" src="<?php echo $_SESSION['url']."../Imagens/carrinho.png"?>"></a>
-                    <a href="../index.html"><img class="img_estacio"  src="<?php echo $_SESSION['url']."../Imagens/estacio-logo.png"?>"></a>
+                    <a href="../index.php"><img class="img_carrinho" src="<?php echo $_SESSION['url']."../Imagens/carrinho.png"?>"></a>
+                    <a href="../index.php"><img class="img_estacio"  src="<?php echo $_SESSION['url']."../Imagens/estacio-logo.png"?>"></a>
                 </div>
             </div>
         </header>
