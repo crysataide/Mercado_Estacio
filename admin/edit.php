@@ -67,16 +67,16 @@
                         <input type="text" id="NameForn" name="NameForn" value="<?=$data_fornecedor['NameForn'];?>" require autofocus>
 
                         <label>Email</label>
-                        <input type="email" id="EmailForn" name="EmailForn" <?=$data_fornecedor['EmailForn'];?> require>
+                        <input type="email" id="EmailForn" name="EmailForn" value="<?=$data_fornecedor['EmailForn'];?>" require>
 
                         <label>Telefone</label>
-                        <input type="tel" id="TelForn" name="TelForn" <?=$data_fornecedor['TelForn'];?> require>
+                        <input type="tel" id="TelForn" name="TelForn" value="<?=$data_fornecedor['TelForn'];?>" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" require>
 
                         <label>CNPJ do Fornecedor</label>
-                        <input type="text" id="DocForn" name="DocForn" <?=$data_fornecedor['DocForn'];?> require autofocus>
+                        <input type="text" id="DocForn" name="DocForn" value="<?=$data_fornecedor['DocForn'];?>" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" require autofocus>
 
                         <label>Data de Nascimento</label>
-                        <input type="date" id="DateForn" name="DateForn" placeholder="dd/mm/yyyy" <?=$data_fornecedor['DateForn'];?> require autofocus>
+                        <input type="date" id="DateForn" name="DateForn" placeholder="dd/mm/yyyy" value="<?=$data_fornecedor['DateForn'];?>" require autofocus>
                     </div>
                 <?php } elseif (isset($_GET['ID'])) {?>
                     <h2>ATUALIZAR FORNECEDOR</h2>
@@ -95,4 +95,5 @@
             </div>
 		</form>
     </body>
+    <?php require('botom_admin.php')?>
 </html>

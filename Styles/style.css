@@ -417,3 +417,52 @@ table {
 .botao_excluir {
 	color: red;
 }
+
+/*=================================================
+|||		|    5 PARTE: RODAPE DA PÁGINA    |     |||
+||+-----+------------------+--------------+-----+||
+|||  Autor: Crystian Ataide | Data: 26/05/2023	|||
+=================================================*/
+.rodape {
+	width: 100%;
+	display: flex;
+	padding: 50px 0;
+	justify-content: center;
+	background: linear-gradient(135deg, #9ad2c5 0%, #9ad2c5 25%, #0b8c9f 75%, #0b8c9f 100%);
+}
+
+.img_logo-rodap {
+	display: flex;
+	align-items: center;
+	padding-right: 30px;
+	transition: 0.3s all;
+}
+
+.img_logo-rodap:hover {
+	transform: scale(101%);
+}
+
+.img_rodap-carrinho {
+	width: 45px;
+}
+
+.img_rodap-estacio {
+	width: 190px;
+}
+
+.descricao p {
+	font-size: 15px;
+}
+
+.contatos {
+	padding-top: 10px;
+}
+
+.logo_contato {
+	width: 20px;
+	transition: 0.3s all;
+}
+
+.logo_contato:hover {
+	transform: scale(110%);
+}

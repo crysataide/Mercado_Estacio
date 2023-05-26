@@ -53,4 +53,5 @@
 			</table>
 		</div>
     </body>
+    <?php require('botom_admin.php')?>
 </html>

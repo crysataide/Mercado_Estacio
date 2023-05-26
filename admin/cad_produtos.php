@@ -8,7 +8,7 @@
                 <h2>Cadastro de Produtos</h2>
                 <div class="cad_form">
                     <label>Código Interno</label>
-                    <input type="text" id="CodPro" name="CodPro" placeholder="000000" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"  require autofocus>
+                    <input type="text" id="CodPro" name="CodPro" placeholder="000000" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" require autofocus>
 
                     <label>Código de Barras</label>
                     <input type="text" id="CodBar" name="CodBar" require autofocus>
@@ -25,4 +25,5 @@
             </section>
         </form>
     </body>
+    <?php require('botom_admin.php')?>
 </html>

@@ -9,8 +9,8 @@
     </head>
     <body>
         <header class="cabecalho_inicio">
-            <a href="index.php"><img class="img_carrinho" src="Imagens/carrinho.png"></a>
-            <a href="index.php"><img class="img_estacio"  src="Imagens/estacio-logo.png"></a>
+            <a href="index.php"><img class="img_carrinho" src="Imagens/logo/carrinho.png"></a>
+            <a href="index.php"><img class="img_estacio"  src="Imagens/logo/estacio-logo.png"></a>
         </header>
         <div class="container">
             <div class="login-form">
