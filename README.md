@@ -14,7 +14,7 @@ Projeto destinado ao desenvolvimento de páginas web, no, usando as principais l
 
 <div id="badges">
     <a href = "https://github.com/CrystianAtaide"></a>
-    <a href="https://instagram.com/crys._.at" target="_blank"><img src="https://img.shields.io/badge/-Instagram-%23E4405F?style=for-the-badge&logo=instagram&logoColor=white" target="_blank"></a>
+    <a href = "https://instagram.com/crys._.at" target="_blank"><img src="https://img.shields.io/badge/-Instagram-%23E4405F?style=for-the-badge&logo=instagram&logoColor=white" target="_blank"></a>
     <a href = "mailto:crystianataide@gmail.com"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>
     <a href = "https://www.linkedin.com/in/crystianataide"><img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>
 </div>
