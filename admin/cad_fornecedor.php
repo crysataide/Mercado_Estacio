@@ -28,4 +28,5 @@
             </section>
         </form>
     </body>
+    <?php require('botom_admin.php')?>
 </html>

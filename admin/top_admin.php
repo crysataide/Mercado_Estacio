@@ -29,30 +29,30 @@
             }
         </script>
     </head>
-    <body>
-        <header>
-            <div class="cabecalho">
-                <div class="barra_topo">
-                    <div class="botao_menu">
-                        <nav>
-                            <ul class="menu_admin">
-                                <li>
-                                    <a href="#"><img src="../Imagens/menu.png"></a>
-                                    <ul>
-                                        <li><a href="<?php echo $_SESSION['url_admin'];?>">Home</a></li>
-                                        <li><a href="<?php echo $_SESSION['url']."/exit.php";?>">Sair</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                    <div class="msg_name">
-                        <label><?php echo "Seja bem-vindo, ".$_SESSION['name'];?></label>
-                    </div>
+    <header>
+        <div class="cabecalho">
+            <div class="barra_topo">
+                <div class="botao_menu">
+                    <nav>
+                        <ul class="menu_admin">
+                            <li>
+                                <a href="#"><img src="../Imagens/menu.png"></a>
+                                <ul>
+                                    <li><a href="<?php echo $_SESSION['url_admin'];?>">Home</a></li>
+                                    <li><a href="<?php echo $_SESSION['url']."/exit.php";?>">Sair</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
-                <div class="img_logo">
-                    <a href="../index.php"><img class="img_carrinho" src="<?php echo $_SESSION['url']."../Imagens/carrinho.png"?>"></a>
-                    <a href="../index.php"><img class="img_estacio"  src="<?php echo $_SESSION['url']."../Imagens/estacio-logo.png"?>"></a>
+                <div class="msg_name">
+                    <label><?php echo "Seja bem-vindo, ".$_SESSION['name'];?></label>
                 </div>
             </div>
-        </header>
+            <div class="img_logo">
+                <a href="../index.php"><img class="img_carrinho" src="<?php echo $_SESSION['url']."../Imagens/logo/carrinho.png"?>"></a>
+                <a href="../index.php"><img class="img_estacio"  src="<?php echo $_SESSION['url']."../Imagens/logo/estacio-logo.png"?>"></a>
+            </div>
+        </div>
+    </header>
+    <body>
