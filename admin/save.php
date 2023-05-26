@@ -78,21 +78,41 @@
             mysqli_close($conexao);
         }
     }
+    else if (isset($_POST['ID'])) {
+
+        $id_user     = $_POST['ID'];
+        $name_user   = $_POST['name'];
+        $username    = $_POST['username'];
+        $email_user  = $_POST['email'];
+        $update_user = "UPDATE login SET name = '".$name."' AND username='".$username."' AND email='".$email_user."'";
+
+        if (mysqli_query($conexao,$update_user)) {
+            mysqli_close($conexao);
+            echo "<script> alert ('USUÁRIO ATUALIZADO COM SUCESSO!');</script>";
+            echo "<script> window.location.href='$url/admin/view_users.php';</script>";
+        }
+        else {
+            echo "<script> alert ('ERRO: NÃO FOI POSSÍVEL ATUALIZAR O USUÁRIO!');</script>";
+            echo "<script> window.location.href='$url/admin/view_users.php';</script>";
+            mysqli_close($conexao);
+        }
+    }
     else if (isset($_POST['username'])) {
 
         $name_user   = $_POST['name'];
         $username    = $_POST['username'];
+        $email_user  = $_POST['email'];
         $password    = $_POST['password'];
         $insert_user = "INSERT INTO login (name,username,password) VALUES ('".$name_user."','".$username."','".$password."')";
 
         if (mysqli_query($conexao,$insert_user)) {
             mysqli_close($conexao);
             echo "<script> alert ('USUÁRIO CADASTRADO COM SUCESSO!');</script>";
-            echo "<script> window.location.href='$url';</script>";
+            echo "<script> window.location.href='$url/admin/view_users.php';</script>";
         }
         else {
             echo "<script> alert ('ERRO: NÃO FOI POSSÍVEL CADASTRAR O USUÁRIO!');</script>";
-            echo "<script> window.location.href='$url';</script>";
+            echo "<script> window.location.href='$url/admin/view_users.php';</script>";
             mysqli_close($conexao);
         }
     }

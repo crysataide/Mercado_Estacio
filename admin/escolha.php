@@ -4,7 +4,7 @@
         <title>Mercado Estácio - Escolha</title>
     <?php require('top_admin.php');?>
         <main class="main-escolha">
-            <ul class="escolha">
+            <ul class="escolha" id='escolha'>
                 <li class="lista-produtos">
                     <h2>Produtos</h2>
                     <a href="view_produtos.php"><img src="../Imagens/produtos.png" title="Produtos" alt="Imagem-Produto"></a>
@@ -16,12 +16,22 @@
                 <?php
                     if ($_SESSION['username'] == 'admin') { ?>
 
-                        <li class="lista-usuarios lista-aparecendo">
+                        <li class="lista-usuarios" id='lista-usuarios'>
                             <h2>Usuários</h2>
                             <a href="view_users.php"><img src="../Imagens/usuarios.png" title="Usuários" alt="Imagem-Usuario"></a>
                         </li>
-                <?php } ?>
+                    <script>
+                        var listaEscolha = document.getElementById('escolha');
+                        listaEscolha.style.width = '60%';
+                    </script>
+                <?php } else {?>
+                    <script>
+                        var listaEscolha = document.getElementById('escolha');
+                        listaEscolha.style.width = '800px';
+                    </script>
+                <?php }?>
             </ul>
         </main>
+        <script src="index.js"></script>
     </body>
 </html>
