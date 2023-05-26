@@ -1,99 +1,33 @@
-# Guia de estilos
+# Projeto de Desenvolvimento Web
+<br>
 
-## Fonte
+Projeto destinado ao desenvolvimento de páginas web, no, usando as principais linguagens: PHP, HTML5, CSS3, JavaScript e SQL. Nomeei de **Mercado Estácio**, onde ela possui páginas de login, visualização, cadastro, edição e exclusão (CRUD).
 
-```html
-Open Sans:
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap">
-```
+A página de possui 3 objetivos:
 
-## Cores
+- CRUD de Produtos.
+- CRUD de Fornecedores.
+- CRUD de Usuários (Somente usuário admin tem acesso).
+<br>
 
-corpo: `#1D232A`
+### Projeto desenvolvido por [Crystian Ataide](https://github.com/crysataide)
 
-cabeçalho: `#1D232A`
+### Contatos:
 
-cabeçalho mobile: `#15191C`
+<div id="badges">
+    <a href = "https://github.com/CrystianAtaide"></a>
+    <a href="https://instagram.com/crys._.at" target="_blank"><img src="https://img.shields.io/badge/-Instagram-%23E4405F?style=for-the-badge&logo=instagram&logoColor=white" target="_blank"></a>
+    <a href = "mailto:crystianataide@gmail.com"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>
+    <a href = "https://www.linkedin.com/in/crystianataide"><img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>
+</div>
+<br>
 
-menu lateral: `#15191C`
+## Liguagens:
 
-cartão: `#2C343A`
-
-fonte: `#FFFFFF`
-
-fonte alternativa: `#95999C`
-
-links: `#0480DC`
-
-botão: `#0480DC`
-
-sombras: `0px 4px 4px rgba(0, 0, 0, 0.16)`
-
-## Ícones
-
-Estão dentro do arquivo de fonte `icones.ttf`. Para usar, primeiro importe a fonte no projeto usando `@font-face` e depois utilize os códigos abaixo para exibir o ícone.
-
-```css
-@font-face {
-    font-family: 'icones';
-    src: url(../font/icones.ttf);
-}
-```
-
-> Cuidado com a localização do arquivo `icones.ttf`
-
-Camisas = `\e900`
-
-Carrinho = `\e901`
-
-Inicio = `\e902`
-
-Integrantes = `\e903`
-
-Menu = `\e904`
-
-Moeda = `\e905`
-
-Notificação = `\e906`
-
-Pico = `\e908`
-
-Picos = `\e909`
-
-Pinturas = `\e90a`
-
-Play = `\e90b`
-
-Relogio = `\e90c`
-
-Seta-baixo = `\e90d`
-
-Videos = `\e90e`
-
-Visualizacao = `\e90f`
-
-## Espaçamentos
-
-Espaço interno botão: `8px`
-
-Espaço entre elementos do botão: `8px`
-
-Espaço entre elementos: `16px/8px`
-
-Espaçamento interno do corpo: `16px`
-
-Espaçamento entre o título do cartão de recentes e seus itens: `24px`
-
-## Tamanhos
-
-Tamanho do dispositivo mobile: `360px`
-
-Tamanho do dispositivo desktop: `1440px`
-
-Largura máxima do conteúdo principal: `1120px`
-
-Largura máxima de um cartão desktop: `256px`
-
-Altura mínima de um cartão: `320px`
+<div>
+    <img src="https://github.com/devicons/devicon/blob/master/icons/html5/html5-original.svg" title="HTML5" alt="HTML" width="40" height="40"/>&nbsp;
+    <img src="https://github.com/devicons/devicon/blob/master/icons/css3/css3-original.svg" title="CSS3" alt="CSS3" width="40" height="40"/>&nbsp;
+    <img src="https://github.com/devicons/devicon/blob/master/icons/javascript/javascript-original.svg" title="JavaScript" alt="JS" width="40" height="40"/>&nbsp;
+    <img src="https://github.com/devicons/devicon/blob/master/icons/php/php-original.svg" title="PHP" alt="PHP" width="50" height="40"/>&nbsp;
+    <img src="https://github.com/devicons/devicon/blob/master/icons/mysql/mysql-original.svg" title="MySQL" alt="MySQL" width="40" height="40"/>&nbsp
+</div>
