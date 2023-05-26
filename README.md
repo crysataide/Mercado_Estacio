@@ -4,14 +4,11 @@
 Projeto destinado ao desenvolvimento de páginas web, no, usando as principais linguagens: PHP, HTML5, CSS3, JavaScript e SQL. Nomeei de **Mercado Estácio**, onde ela possui páginas de login, visualização, cadastro, edição e exclusão (CRUD).
 <br>
 
-A página de possui 3 objetivos:
+### A página de possui 3 objetivos:
 
 - CRUD de Produtos.
 - CRUD de Fornecedores.
 - CRUD de Usuários (Somente usuário admin tem acesso).
-<br>
-
-### Projeto desenvolvido por [Crystian Ataide](https://github.com/crysataide)
 
 ### Contatos:
 
@@ -21,6 +18,8 @@ A página de possui 3 objetivos:
     <a href = "mailto:crystianataide@gmail.com"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>
     <a href = "https://www.linkedin.com/in/crystianataide"><img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>
 </div>
+
+#### Desenvolvido por [Crystian Ataide](https://github.com/crysataide)
 <br>
 
 ## Liguagens:
