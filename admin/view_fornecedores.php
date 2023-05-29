@@ -44,10 +44,10 @@
                     <td class="desc"><?php echo $dados_fornecedor['DateForn'];?></td>
                     <td class="acao">
                         <a href="edit.php?ID_FORN=<?php echo $dados_fornecedor['ID_FORN'];?>">
-                            <img src="../Imagens/lapis.png" class="botao_edit" title="Editar">
+                            <img src="../Imagens/tabela/lapis.png" class="botao_edit" title="Editar">
                         </a>
                         <a href="javascript:func()" onclick="delete_fornecedor('<?php echo $dados_fornecedor['ID_FORN'];?>')">
-                            <img src="../Imagens/lixeira.png" class="botao_delete" title="Excluir">
+                            <img src="../Imagens/tabela/lixeira.png" class="botao_delete" title="Excluir">
                         </a>
                     </td>
                 </tr>

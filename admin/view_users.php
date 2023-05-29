@@ -22,7 +22,7 @@
                 <h2>USUÁRIOS CADASTRADOS</h2>
                 <a href="cad_user.php">
                     <button class="btn_incluir">
-                        <img src="../Imagens/incluir.png">
+                        <img src="../Imagens/tabela/incluir.png">
                         <div class="text">Incluir</div>
                     </button>
                 </a>
@@ -32,19 +32,26 @@
                     <th>Nome</th>
                     <th>Usuários</th>
                     <th>Email</th>
+                    <th>Senha</th>
                 </tr>
             <?php do{?>
                 <tr class="tabela_desc">
                     <td class="desc"><?php echo $data_users['name'];?></td>
                     <td class="desc"><?php echo $data_users['username'];?></td>
                     <td class="desc"><?php echo $data_users['email'];?></td>
+                    <td class="desc"><?php echo $data_users['password'];?></td>
                     <td class="acao">
-                        <a href="edit.php?ID=<?php echo $data_users['ID'];?>">
-                            <img src="../Imagens/lapis.png" class="botao_edit" title="Editar">
-                        </a>
-                        <a href="javascript:func()" onclick="delete_user('<?php echo $data_users['ID'];?>')">
-                            <img src="../Imagens/lixeira.png" class="botao_delete" title="Excluir">
-                        </a>
+                        <button class="btn_opcao">
+                            <div class="btn_acao">
+                                <a class="btn_edit"   href="edit.php?CodPro=<?php echo $dados_produto['CodPro'];?>">
+                                    <img src="../Imagens/tabela/lapis.png" class="img_edit" title="Editar">
+                                </a>
+                                <a class="btn_delete" href="javascript:func()" onclick="delete_produto('<?php echo $dados_produto['CodPro'];?>')">
+                                    <img src="../Imagens/tabela/lixeira.png" class="img_delete" title="Excluir">
+                                </a>
+                            </div>
+                            <img src="../Imagens/tabela/opcao.png" class="img_opcao">
+                        </button>
                     </td>
                 </tr>
             <?php }while ($data_users = mysqli_fetch_assoc($select_users));?>
