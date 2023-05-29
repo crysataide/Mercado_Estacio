@@ -40,14 +40,16 @@
                     <td class="desc"><?php echo $dados_produto['CodBar'];?></td>
                     <td class="desc"><?php echo $dados_produto['DescPro'];?></td>
                     <td class="desc"><?php echo $dados_produto['CategPro'];?></td>
-                    <td class="acao">
-                        <a href="edit.php?CodPro=<?php echo $dados_produto['CodPro'];?>">
-                            <img src="../Imagens/lapis.png" class="botao_edit" title="Editar">
-                        </a>
-                        <a href="javascript:func()" onclick="delete_produto('<?php echo $dados_produto['CodPro'];?>')">
-                            <img src="../Imagens/lixeira.png" class="botao_delete" title="Excluir">
-                        </a>
-                    </td>
+                    <!-- <td class="acao"> -->
+                        <button class="btn_opcao">
+                            <a href="edit.php?CodPro=<?php echo $dados_produto['CodPro'];?>">
+                                <img src="../Imagens/tabela/lapis.png" class="botao_edit" title="Editar">
+                            </a>
+                            <a href="javascript:func()" onclick="delete_produto('<?php echo $dados_produto['CodPro'];?>')">
+                                <img src="../Imagens/tabela/lixeira.png" class="botao_delete" title="Excluir">
+                            </a>
+                        </button>
+                    <!-- </td> -->
                 </tr>
             <?php }while ($dados_produto = mysqli_fetch_assoc($select_produto));?>
             </table>
