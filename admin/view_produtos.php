@@ -21,8 +21,10 @@
             <div class="area_titulo">
                 <h2>PRODUTOS CADASTRADOS</h2>
                 <a href="cad_produtos.php">
-                    <img src="../Imagens/incluir.png">
-                    <p>Incluir</p>
+                    <button class="btn_incluir">
+                        <img src="../Imagens/incluir.png">
+                        <div class="text">Incluir</div>
+                    </button>
                 </a>
             </div>
             <table>	
@@ -40,10 +42,10 @@
                     <td class="desc"><?php echo $dados_produto['CategPro'];?></td>
                     <td class="acao">
                         <a href="edit.php?CodPro=<?php echo $dados_produto['CodPro'];?>">
-                            <img src="../Imagens/lapis-produto.png" class="botao_editar" title="Editar">
+                            <img src="../Imagens/lapis.png" class="botao_edit" title="Editar">
                         </a>
                         <a href="javascript:func()" onclick="delete_produto('<?php echo $dados_produto['CodPro'];?>')">
-                            <img src="../Imagens/lixeira-produtos.png" class="botao_excluir" title="Excluir">
+                            <img src="../Imagens/lixeira.png" class="botao_delete" title="Excluir">
                         </a>
                     </td>
                 </tr>

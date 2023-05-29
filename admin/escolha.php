@@ -32,7 +32,6 @@
                 <?php }?>
             </ul>
         </main>
-        <script src="index.js"></script>
     </body>
     <?php require('botom_admin.php')?>
 </html>

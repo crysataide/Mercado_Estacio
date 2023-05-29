@@ -21,8 +21,10 @@
 			<div class="area_titulo">
                 <h2>FORNECEDORES CADASTRADOS</h2>
                 <a href="cad_fornecedor.php">
-                    <img src="../Imagens/incluir.png">
-                    <p>Incluir</p>
+                    <button class="btn_incluir">
+                        <img src="../Imagens/incluir.png">
+                        <div class="text">Incluir</div>
+                    </button>
                 </a>
             </div>
             <table>	
@@ -42,10 +44,10 @@
                     <td class="desc"><?php echo $dados_fornecedor['DateForn'];?></td>
                     <td class="acao">
                         <a href="edit.php?ID_FORN=<?php echo $dados_fornecedor['ID_FORN'];?>">
-                            <img src="../Imagens/lapis-fornecedor.png" class="botao_acao" title="Editar">
+                            <img src="../Imagens/lapis.png" class="botao_edit" title="Editar">
                         </a>
                         <a href="javascript:func()" onclick="delete_fornecedor('<?php echo $dados_fornecedor['ID_FORN'];?>')">
-                            <img src="../Imagens/lixeira-fornecedor.png" class="botao_acao" title="Excluir">
+                            <img src="../Imagens/lixeira.png" class="botao_delete" title="Excluir">
                         </a>
                     </td>
                 </tr>
