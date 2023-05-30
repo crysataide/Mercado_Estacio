@@ -40,7 +40,7 @@ header {
 .img_logo {
 	display: flex;
 	align-items: center;
-	padding-right: 15px;
+	padding-right: 30px;
 }
 
 .img_estacio {
@@ -53,7 +53,7 @@ header {
 
 .barra_topo{
 	flex-direction: row;
-	padding-left: 10px;
+	/* padding-left: 10px; */
 	display: flex;
 }
 
@@ -164,7 +164,21 @@ input {
 	justify-content: space-between;
 }
 
-input[type="submit"] {
+input[name="botao_entrar"] {
+	width: 100%;
+	border: none;
+	color: #fff;
+	padding: 12px;
+	cursor: pointer;
+	font-size: 16px;
+	margin-top: 30px;
+	border-radius: 4px;
+	transition: .2s all;
+	background-color: #4CAF50;
+}
+
+input[name="botao_cancel"],
+input[name="botao_salvar"] {
 	width: 90%;
 	border: none;
 	color: #fff;
@@ -185,6 +199,7 @@ input[name="botao_cancel"] {
 	background-color: red;
 }
 
+input[name="botao_entrar"]:hover,
 input[name="botao_salvar"]:hover {
 	background-color: #3e8e41;
 	transform: scale(102%);
@@ -201,13 +216,33 @@ input[name="botao_cancel"]:hover {
 |||  Autor: Crystian Ataide | Data: 22/04/2023	|||
 =================================================*/
 .main-escolha {
-	width: 100%;
+	width: 940px;
+	margin: 0 auto;
+	padding: 3em 0;
+}
+
+.texto {
+	border-radius: 40px;
+	padding: 20px 40px 40px;
+	/* border: 3px solid cyan; */
+	box-shadow:  22px 22px 42px #cacaca, -22px -22px 42px #f6f6f6;
+}
+
+.texto h2 {
+	clear: left;
+	font-size: 1.5em;
+	text-align: center;
+	margin-bottom: 1.5em;
+}
+
+.texto p {
+	font-size: 0.95em;
+	margin-bottom: 1em;
 }
 
 .escolha {
 	display: flex;
-	margin: 0 auto;
-	padding: 100px 0;
+	padding: 50px 6em;
 	justify-content: space-between;
 }
 
@@ -222,19 +257,18 @@ input[name="botao_cancel"]:hover {
 }
 
 .lista {
-	width: 30%;
-	margin: 0 4.5%;
+	width: 40%;
+	margin: 0 3.5%;
 	padding: 30px 20px;
 	position: relative;
 	text-align: center;
 	border-radius: 55px;
 	transition: 0.3s all;
-	box-sizing: border-box;
-	border-width: 10px 3px;
+	/* box-sizing: border-box;
+	border-width: 10px 3px; */
 	border: solid #0b8c9f;
-	background-color: #fff;
-	box-shadow:  25px 25px 50px #a6a6a6,
-				-25px -25px 50px #ffffff;
+	/* background-color: #fff; */
+	box-shadow:  25px 25px 50px #a6a6a6, -25px -25px 50px #ffffff;
 }
 
 .lista:hover {

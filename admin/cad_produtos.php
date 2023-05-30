@@ -3,7 +3,7 @@
     <head>
         <title>Cadastro de Produtos</title>
     <?php require('top_admin.php')?>
-        <form id="form_cadastro" name="form_cadastro" method="post" action="save.php" class="form_cadastro">
+        <form id="form_cadastro" name="form_cadastro" method="post" class="form_cadastro" onsubmit="return validaForm('produto_save')">
             <section class="cadastro">
                 <h2>Cadastro de Produtos</h2>
                 <div class="cad_form">
@@ -20,7 +20,7 @@
                     <input type="text" id="CategPro" name="CategPro" placeholder="Descartável" require autofocus>
                 </div>
                 <div class="cad_btn">
-                    <a href="view_produtos.php"><input type="submit" id="botao_cancel" name="botao_cancel" value="Cancelar"></a>
+                    <input type="button" id="botao_cancel" name="botao_cancel" value="Cancelar" onclick="return cancelEnvio()">
                     <input type="submit" id="botao_salvar" name="botao_salvar" value="Salvar">
                 </div>
             </section>

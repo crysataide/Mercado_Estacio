@@ -8,6 +8,7 @@
 
         if (isset($_GET['CodPro'])) {
 
+            $cadastro = "produto_edit";
             $codigo_produto = $_GET['CodPro'];
 
             $select_produto = mysqli_query($conexao, "SELECT * FROM produtos WHERE CodPro = $codigo_produto");
@@ -22,6 +23,7 @@
         }
         else if (isset($_GET['ID_FORN'])) {
 
+            $cadastro = "fornecedor_edit";
             $codigo_fornecedor = $_GET['ID_FORN'];
 
             $select_fornecedores = mysqli_query($conexao, "SELECT * FROM fornecedores WHERE ID_FORN = $codigo_fornecedor");
@@ -37,6 +39,7 @@
         else if (isset($_GET['ID'])) {
 
             $id_user = $_GET['ID'];
+            $cadastro = "usuario_edit";
 
             $select_user = mysqli_query($conexao, "SELECT * FROM login WHERE ID = $id_user");
 
@@ -49,7 +52,7 @@
             }
         }
     ?>
-		<form id="form_cadastro" name="form_cadastro" method="post" action="save.php" class="form_cadastro">
+		<form id="form_cadastro" name="form_cadastro" method="post" class="form_cadastro" onsubmit="return validaForm('<?=$cadastro?>')">
             <div class="cadastro">
                 <?php if (isset($_GET['CodPro'])) {?>
                     <h2>ATUALIZAR PRODUTO</h2>
@@ -73,7 +76,7 @@
                         <input type="tel" id="TelForn" name="TelForn" value="<?=$data_fornecedor['TelForn'];?>" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" require>
 
                         <label>CNPJ do Fornecedor</label>
-                        <input type="text" id="DocForn" name="DocForn" value="<?=$data_fornecedor['DocForn'];?>" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" require autofocus>
+                        <input type="text" id="DocForn" name="DocForn" value="<?=$data_fornecedor['DocForn'];?>" oninput="addCaracter(this)" require autofocus>
 
                         <label>Data de Nascimento</label>
                         <input type="date" id="DateForn" name="DateForn" placeholder="dd/mm/yyyy" value="<?=$data_fornecedor['DateForn'];?>" require autofocus>
@@ -89,10 +92,13 @@
 
                         <label>Email</label>
                         <input type="email" id="email" name="email" value="<?=$data_user['email'];?>" require>
+
+                        <label for="password">Senha:</label>
+                        <input type="password" id="password" name="password" value="<?=$data_user['password'];?>" required>
                     </div>
                 <?php }?>
                 <div class="cad_btn">
-                    <input type="submit" id="botao_cancel" name="botao_cancel" value="Cancelar">
+                    <input type="button" id="botao_cancel" name="botao_cancel" value="Cancelar" onclick="return cancelEnvio()">
                     <input type="submit" id="botao_entrar" name="botao_salvar" value="Salvar">
                 </div>
             </div>
