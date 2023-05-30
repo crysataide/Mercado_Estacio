@@ -19,7 +19,8 @@
                     <label>Categoria</label>
                     <input type="text" id="CategPro" name="CategPro" placeholder="Descartável" require autofocus>
                 </div>
-                <div>
+                <div class="cad_btn">
+                    <a href="view_produtos.php"><input type="submit" id="botao_cancel" name="botao_cancel" value="Cancelar"></a>
                     <input type="submit" id="botao_salvar" name="botao_salvar" value="Salvar">
                 </div>
             </section>

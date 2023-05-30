@@ -22,7 +22,7 @@
                 <h2>PRODUTOS CADASTRADOS</h2>
                 <a href="cad_produtos.php">
                     <button class="btn_incluir">
-                        <img src="../Imagens/incluir.png">
+                        <img src="../Imagens/tabela/incluir.png">
                         <div class="text">Incluir</div>
                     </button>
                 </a>
@@ -40,16 +40,19 @@
                     <td class="desc"><?php echo $dados_produto['CodBar'];?></td>
                     <td class="desc"><?php echo $dados_produto['DescPro'];?></td>
                     <td class="desc"><?php echo $dados_produto['CategPro'];?></td>
-                    <!-- <td class="acao"> -->
+                    <td class="acao">
                         <button class="btn_opcao">
-                            <a href="edit.php?CodPro=<?php echo $dados_produto['CodPro'];?>">
-                                <img src="../Imagens/tabela/lapis.png" class="botao_edit" title="Editar">
-                            </a>
-                            <a href="javascript:func()" onclick="delete_produto('<?php echo $dados_produto['CodPro'];?>')">
-                                <img src="../Imagens/tabela/lixeira.png" class="botao_delete" title="Excluir">
-                            </a>
+                            <div class="btn_acao">
+                                <a class="btn_edit"   href="edit.php?CodPro=<?php echo $dados_produto['CodPro'];?>">
+                                    <img src="../Imagens/tabela/lapis.png" class="img_edit" title="Editar">
+                                </a>
+                                <a class="btn_delete" href="javascript:func()" onclick="delete_produto('<?php echo $dados_produto['CodPro'];?>')">
+                                    <img src="../Imagens/tabela/lixeira.png" class="img_delete" title="Excluir">
+                                </a>
+                            </div>
+                            <img src="../Imagens/tabela/opcao.png" class="img_opcao">
                         </button>
-                    <!-- </td> -->
+                    </td>
                 </tr>
             <?php }while ($dados_produto = mysqli_fetch_assoc($select_produto));?>
             </table>

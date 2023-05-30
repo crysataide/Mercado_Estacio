@@ -43,11 +43,11 @@
                     <td class="acao">
                         <button class="btn_opcao">
                             <div class="btn_acao">
-                                <a class="btn_edit"   href="edit.php?CodPro=<?php echo $dados_produto['CodPro'];?>">
-                                    <img src="../Imagens/tabela/lapis.png" class="img_edit" title="Editar">
+                                <a class="btn_edit"   href="edit.php?ID=<?=$data_users['ID'];?>">
+                                    <img src="../Imagens/tabela/lapis.png" class="img_edit img_acao" title="Editar">
                                 </a>
-                                <a class="btn_delete" href="javascript:func()" onclick="delete_produto('<?php echo $dados_produto['CodPro'];?>')">
-                                    <img src="../Imagens/tabela/lixeira.png" class="img_delete" title="Excluir">
+                                <a class="btn_delete" href="javascript:func()" onclick="delete_user('<?=$data_users['ID'];?>')">
+                                    <img src="../Imagens/tabela/lixeira.png" class="img_delete img_acao" title="Excluir">
                                 </a>
                             </div>
                             <img src="../Imagens/tabela/opcao.png" class="img_opcao">

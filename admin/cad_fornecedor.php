@@ -22,7 +22,8 @@
                     <label>Data de Nascimento</label>
                     <input type="date" id="DateForn" name="DateForn" placeholder="dd/mm/yyyy" require autofocus>
                 </div>
-                <div>
+                <div class="cad_btn">
+                    <input type="submit" id="botao_cancel" name="botao_cancel" value="Cancelar">
                     <input type="submit" id="botao_salvar" name="botao_salvar" value="Salvar">
                 </div>
             </section>

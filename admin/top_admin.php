@@ -27,6 +27,12 @@
                     window.location.href = "delete.php?ID_FORN="+id_forn;
                 }
             }
+            function delete_user(id_user) {
+            var resposta = confirm("Deseja continuar com a exclusão do usuário?");
+                if (resposta == true){
+                    window.location.href = "delete.php?ID="+id_user;
+                }
+            }
         </script>
     </head>
     <header>

@@ -159,40 +159,39 @@ input {
 	width: 100%;
 }
 
-.cad_login--titulo {
-	font-size: 13px;
-}
-
-.cad_login--btn {
-	border: 0px;
-	cursor: pointer;
-	font-size: 14px;
-	color: #116999;
-	border-radius: 7px;
-	font-weight: normal;
-	border-color: initial;
-	text-decoration: underline;
-	background-color: transparent;
-}
-
-.cad_login--btn:hover {
-	color: #082875;
+.cad_btn {
+	display: flex;
+	justify-content: space-between;
 }
 
 input[type="submit"] {
-	width: 100%;
+	width: 90%;
 	border: none;
 	color: #fff;
 	padding: 12px;
 	cursor: pointer;
 	font-size: 16px;
-	margin-top: 10px;
 	border-radius: 4px;
+	transition: .2s all;
+}
+
+input[name="botao_salvar"] {
+	margin: 10px 0 0 10px;
 	background-color: #4CAF50;
 }
 
-input[type="submit"]:hover {
+input[name="botao_cancel"] {
+	margin: 10px 10px 0 0;
+	background-color: red;
+}
+
+input[name="botao_salvar"]:hover {
 	background-color: #3e8e41;
+	transform: scale(102%);
+}
+
+input[name="botao_cancel"]:hover {
+	background-color: #9e0000;
 	transform: scale(102%);
 }
 
@@ -208,24 +207,22 @@ input[type="submit"]:hover {
 .escolha {
 	display: flex;
 	margin: 0 auto;
-	padding: 120px 0;
+	padding: 100px 0;
 	justify-content: space-between;
 }
 
 .escolha h2 {
-	font-size: 30px;
+	font-size: 25px;
 	font-weight: bold;
 	padding-bottom: 20px;
 }
 
 .escolha img {
-	width: 80%;
+	width: 70%;
 }
 
-.lista-usuarios,
-.lista-produtos,
-.lista-fornecedores {
-	width: 35%;
+.lista {
+	width: 30%;
 	margin: 0 4.5%;
 	padding: 30px 20px;
 	position: relative;
@@ -240,9 +237,7 @@ input[type="submit"]:hover {
 				-25px -25px 50px #ffffff;
 }
 
-.lista-usuarios:hover,
-.lista-produtos:hover,
-.lista-fornecedores:hover {
+.lista:hover {
 	cursor: pointer;
 	padding: 30px 20px;
 	transform: scale(105%);
@@ -257,21 +252,21 @@ input[type="submit"]:hover {
 .form_cadastro {
 	width: 550px;
     margin: 0 auto;
-    padding: 3em 0;
+    /* padding: 3em 0; */
 }
 
 .cadastro {
 	width: 400px;
-	margin: 100px auto;
+	margin: 30px auto;
 	border-radius: 20px;
-	padding: 10px 65px 40px;
+	padding: 10px 50px 30px;
 	background-color: #fff;
 	box-shadow: 0px 0px 20px #d7c5c5;
 }
 
 .cadastro h2 {
-	margin: 30px 0;
-	font-size: 30px;
+	margin: 25px 0;
+	font-size: 20px;
 	text-align: center;
 }
 
@@ -280,7 +275,7 @@ input[type="submit"]:hover {
 }
 
 .cad_form {
-    margin: 15px 0 40px;
+    margin: 15px 0 20px;
 }
 
 /*=================================================
@@ -412,17 +407,18 @@ table {
 
 .btn_opcao {
 	opacity: 0;
-	width: 33px;
-	height: 33px;
+	width: 35px;
+	height: 29px;
 	border: none;
 	display: flex;
 	cursor: pointer;
+	margin-top: 2px;
 	overflow: hidden;
 	border-radius: 5px;
 	position: absolute;
 	align-items: center;
-	background-color: fff;
 	transition-duration: .3s;
+	background-color: #9ad2c5;
 	justify-content: space-between;
 }
 
@@ -447,6 +443,7 @@ table {
 
 .btn_opcao:hover {
 	width: 125px;
+	background-color: white;
 	transition-duration: .3s;
 }
 
@@ -464,16 +461,20 @@ table {
 	transform: translate(2px ,2px);
 }
 
-.btn_edit:hover{
-	/* transform: scale(110%); */
-	background-color: green;
+.img_edit:hover{
+	border: none;
+	border-radius: 50%;
+	transform: scale(110%);
+	background-color: #0b8c9f;
 }
 
-.btn_delete:hover {
-	/* transform: scale(110%); */
+.img_delete:hover {
+	border: none;
+	border-radius: 50%;
+	transform: scale(110%);
 	background-color: red;
-	/* padding: 30px; */
 }
+
 
 /*=================================================
 |||		|    5 PARTE: RODAPE DA PÁGINA    |     |||
@@ -481,9 +482,13 @@ table {
 |||  Autor: Crystian Ataide | Data: 26/05/2023	|||
 =================================================*/
 .rodape {
+	bottom: 0;
 	width: 100%;
+	height: 90px;
 	display: flex;
-	padding: 50px 0;
+	padding: 20px 0;
+	align-items: center;
+	position: absolute;
 	justify-content: center;
 	background: linear-gradient(135deg, #9ad2c5 0%, #9ad2c5 25%, #0b8c9f 75%, #0b8c9f 100%);
 }

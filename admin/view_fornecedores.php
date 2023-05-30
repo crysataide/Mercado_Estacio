@@ -10,7 +10,7 @@
         
         if (mysqli_num_rows($select_fornecedores) > 0) {
 
-            $dados_fornecedor = mysqli_fetch_assoc($select_fornecedores);
+            $dados_fornecedores = mysqli_fetch_assoc($select_fornecedores);
 
         } else {
             echo "<script> alert ('NÃO EXISTEM FORNECEDORES CADASTRADOS!');</script>";
@@ -22,7 +22,7 @@
                 <h2>FORNECEDORES CADASTRADOS</h2>
                 <a href="cad_fornecedor.php">
                     <button class="btn_incluir">
-                        <img src="../Imagens/incluir.png">
+                        <img src="../Imagens/tabela/incluir.png">
                         <div class="text">Incluir</div>
                     </button>
                 </a>
@@ -37,21 +37,26 @@
                 </tr>
             <?php do{?>
                 <tr class="tabela_desc">
-                    <td class="desc"><?php echo $dados_fornecedor['NameForn'];?></td>
-                    <td class="desc"><?php echo $dados_fornecedor['EmailForn'];?></td>
-                    <td class="desc"><?php echo $dados_fornecedor['TelForn'];?></td>
-                    <td class="desc"><?php echo $dados_fornecedor['DocForn'];?></td>
-                    <td class="desc"><?php echo $dados_fornecedor['DateForn'];?></td>
+                    <td class="desc"><?php echo $dados_fornecedores['NameForn'];?></td>
+                    <td class="desc"><?php echo $dados_fornecedores['EmailForn'];?></td>
+                    <td class="desc"><?php echo $dados_fornecedores['TelForn'];?></td>
+                    <td class="desc"><?php echo $dados_fornecedores['DocForn'];?></td>
+                    <td class="desc"><?php echo $dados_fornecedores['DateForn'];?></td>
                     <td class="acao">
-                        <a href="edit.php?ID_FORN=<?php echo $dados_fornecedor['ID_FORN'];?>">
-                            <img src="../Imagens/tabela/lapis.png" class="botao_edit" title="Editar">
-                        </a>
-                        <a href="javascript:func()" onclick="delete_fornecedor('<?php echo $dados_fornecedor['ID_FORN'];?>')">
-                            <img src="../Imagens/tabela/lixeira.png" class="botao_delete" title="Excluir">
-                        </a>
+                        <button class="btn_opcao">
+                            <div class="btn_acao">
+                                <a class="btn_edit"   href="edit.php?CodForn=<?=$dados_fornecedores['CodForn'];?>">
+                                    <img src="../Imagens/tabela/lapis.png" class="img_edit" title="Editar">
+                                </a>
+                                <a class="btn_delete" href="javascript:func()" onclick="delete_fornecedor('<?=$dados_fornecedores['CodForn'];?>')">
+                                    <img src="../Imagens/tabela/lixeira.png" class="img_delete" title="Excluir">
+                                </a>
+                            </div>
+                            <img src="../Imagens/tabela/opcao.png" class="img_opcao">
+                        </button>
                     </td>
                 </tr>
-            <?php }while ($dados_fornecedor = mysqli_fetch_assoc($select_fornecedores));?>
+            <?php }while ($dados_fornecedores = mysqli_fetch_assoc($select_fornecedores));?>
 			</table>
 		</div>
     </body>

@@ -91,7 +91,10 @@
                         <input type="email" id="email" name="email" value="<?=$data_user['email'];?>" require>
                     </div>
                 <?php }?>
-                <input type="submit" id="btn_entrar" name="botao_salvar" value="Salvar">
+                <div class="cad_btn">
+                    <input type="submit" id="botao_cancel" name="botao_cancel" value="Cancelar">
+                    <input type="submit" id="botao_entrar" name="botao_salvar" value="Salvar">
+                </div>
             </div>
 		</form>
     </body>

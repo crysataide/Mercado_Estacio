@@ -16,7 +16,8 @@
                     <label for="password">Senha:</label>
                     <input type="password" id="password" name="password" required>
                 </div>
-                <div>
+                <div class="cad_btn">
+                    <input type="submit" id="botao_cancel" name="botao_cancel" value="Cancelar">
                     <input type="submit" id="botao_salvar" name="botao_salvar" value="Salvar">
                 </div>
             </section>
