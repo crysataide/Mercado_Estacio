@@ -4,8 +4,8 @@
     </head>
         <footer class="rodape">
             <div class="img_logo-rodap">
-                <a href="index.php"><img class="img_rodap-carrinho" src="<?php echo $_SESSION['url']."../Imagens/logo/carrinho.png"?>"></a>
-                <a href="index.php"><img class="img_rodap-estacio"  src="<?php echo $_SESSION['url']."../Imagens/logo/estacio-logo.png"?>"></a>
+                <img class="img_rodap-carrinho" src="<?php echo $_SESSION['url']."../Imagens/logo/carrinho.png"?>">
+                <img class="img_rodap-estacio"  src="<?php echo $_SESSION['url']."../Imagens/logo/estacio-logo.png"?>">
             </div>
             <div class="descricao">
                 <p>Desenvolvido por Crystian Ataide</p>

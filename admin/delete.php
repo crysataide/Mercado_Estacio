@@ -36,4 +36,21 @@
             mysqli_close($conexao);
         }
     }
+    elseif (isset($_GET['ID'])) {
+
+        $codigo_user = $_GET['ID'];
+
+        $delete_user = "DELETE FROM login WHERE ID = $codigo_user";
+
+        if (mysqli_query($conexao,$delete_user)) {
+            mysqli_close($conexao);
+            echo "<script> alert ('USUÁRIO EXCLUÍDO COM SUCESSO!');</script>";
+            echo "<script> window.location.href='$url/admin/view_fornecedores.php';</script>";
+        }
+        else {
+            echo "<script> alert ('ERRO: NÃO FOI POSSÍVEL EXCLUIR O USUÁRIO!');</script>";
+            echo "<script> window.location.href='$url/admin/view_fornecedores.php';</script>";
+            mysqli_close($conexao);
+        }
+    }
 ?>

@@ -22,7 +22,7 @@
                     <label for="password">Senha:</label>
                     <input type="password" id="password" name="password" required>
 
-                    <input type="submit" id="botao_entrar" value="Entrar">
+                    <input type="submit" id="botao_entrar" name="botao_entrar" value="Entrar">
                 </form>
             </div>
         </div>

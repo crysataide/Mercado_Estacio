@@ -36,17 +36,17 @@
                 </tr>
             <?php do{?>
                 <tr class="tabela_desc">
-                    <td class="desc"><?php echo $dados_produto['CodPro'];?></td>
-                    <td class="desc"><?php echo $dados_produto['CodBar'];?></td>
-                    <td class="desc"><?php echo $dados_produto['DescPro'];?></td>
-                    <td class="desc"><?php echo $dados_produto['CategPro'];?></td>
+                    <td class="desc"><?=$dados_produto['CodPro'];?></td>
+                    <td class="desc"><?=$dados_produto['CodBar'];?></td>
+                    <td class="desc"><?=$dados_produto['DescPro'];?></td>
+                    <td class="desc"><?=$dados_produto['CategPro'];?></td>
                     <td class="acao">
                         <button class="btn_opcao">
                             <div class="btn_acao">
-                                <a class="btn_edit"   href="edit.php?CodPro=<?php echo $dados_produto['CodPro'];?>">
+                                <a class="btn_edit"   href="edit.php?CodPro=<?=$dados_produto['CodPro'];?>">
                                     <img src="../Imagens/tabela/lapis.png" class="img_edit" title="Editar">
                                 </a>
-                                <a class="btn_delete" href="javascript:func()" onclick="delete_produto('<?php echo $dados_produto['CodPro'];?>')">
+                                <a class="btn_delete" href="javascript:func()" onclick="delete_produto('<?=$dados_produto['CodPro'];?>')">
                                     <img src="../Imagens/tabela/lixeira.png" class="img_delete" title="Excluir">
                                 </a>
                             </div>
