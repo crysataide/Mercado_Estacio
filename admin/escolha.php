@@ -14,33 +14,32 @@
 
                 <p>No Mercado Estácio, acreditamos na importância da eficiência e da qualidade na gestão de produtos e fornecedores. Nossa plataforma foi projetada para atender às suas necessidades e simplificar processos, permitindo que você foque no que é realmente importante: fazer seu negócio crescer.</p>
             </div>
-            <ul class="escolha" id='escolha'>
-                <li class="lista">
-                    <h2>Produtos</h2>
-                    <a href="view_produtos.php"><img src="../Imagens/escolha/produtos.png" title="Produtos" alt="Imagem-Produto"></a>
-                </li>
-                <li class="lista">
-                    <h2>Fornecedores</h2>
-                    <a href="view_fornecedores.php"><img src="../Imagens/escolha/fornecedor.png" title="Fornecedores" alt="Imagem-Fornecedor"></a>
-                </li>
-                <?php
-                    if ($_SESSION['username'] == 'admin') { ?>
-
-                        <li class="lista" id='lista-usuarios'>
-                            <h2>Usuários</h2>
-                            <a href="view_users.php"><img src="../Imagens/escolha/usuarios.png" title="Usuários" alt="Imagem-Usuario"></a>
-                        </li>
-                    <script>
-                        var listaEscolha = document.getElementById('escolha');
-                        listaEscolha.style.width = '80%';
-                    </script>
-                <?php } else {?>
-                    <script>
-                        var listaEscolha = document.getElementById('escolha');
-                        listaEscolha.style.width = '800px';
-                    </script>
-                <?php }?>
-            </ul>
+            <div class="escolha">
+                <h3>Escolha</h3>
+                <ul class="escolha_box" id='escolha'>
+                    <li class="lista">
+                        <h2>Produtos</h2>
+                        <a href="view_produtos.php"><img src="../Imagens/escolha/produtos.png" title="Produtos" alt="Imagem-Produto"></a>
+                    </li>
+                    <li class="lista">
+                        <h2>Fornecedores</h2>
+                        <a href="view_fornecedores.php"><img src="../Imagens/escolha/fornecedor.png" title="Fornecedores" alt="Imagem-Fornecedor"></a>
+                    </li>
+                    <?php
+                        if ($_SESSION['username'] == 'admin') { ?>
+                            <li class="lista">
+                                <h2>Usuários</h2>
+                                <a href="view_users.php"><img src="../Imagens/escolha/usuarios.png" title="Usuários" alt="Imagem-Usuario"></a>
+                            </li>
+                    <?php }?>
+                </ul>
+            </div>
+            <div class="mapa">
+                <h3 class="titulo_mapa">Nosso Estabelecimento</h3>
+                <div class="mapa_conteudo">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d940.1008272069633!2d-60.02695959705718!3d-3.0923821156361164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x926c1aaa40d37829%3A0xa30d9bb8e0fec27a!2sFaculdade%20Est%C3%A1cio%20do%20Amazonas!5e0!3m2!1spt-BR!2sbr!4v1685620086067!5m2!1spt-BR!2sbr" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
         </main>
     </body>
     <?php require('botom_admin.php')?>

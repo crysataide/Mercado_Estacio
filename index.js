@@ -37,7 +37,7 @@ function validaForm(value){
     var EmailForn = document.getElementById('EmailForn');
     var TelForn   = document.getElementById('TelForn');
     var DocForn   = document.getElementById('DocForn');
-    var DateForn  = document.getElementById('CategPro');
+    var DateForn  = document.getElementById('DatePro');
     //: Variáveis do Usuário
     var name     = document.getElementById('name');
     var username = document.getElementById('username');
@@ -68,12 +68,13 @@ function validaForm(value){
             return false;
         }
     }
-    window.location.href = "save.php";
+    //: PROCEDE COM A INCLUSÃO
+    return true;
 }
 
 function addCaracter(input,size,type) {
     var formattedValue = '';
-    var value = input.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');
+    var value = input.value.replace(/[^0-9.]/g, '');
 
     if (type === 'cnpj') {
         for (var i = 0; i < size; i++) {
@@ -100,4 +101,40 @@ function addCaracter(input,size,type) {
         }
     }
     input.value = formattedValue;
+}
+
+//: FUNÇÃO PARA VALIDAR DIMENSÃO DOS OBJETOS NA PÁGINA DE ESCOLHA
+window.onload = function() {
+    var tabelaObject = document.getElementById('tabela');
+    var listaEscolha = document.getElementsByClassName('lista');
+    var tabelaDescri = document.getElementsByClassName('tabela_desc');
+
+    for (var i = 0; i < listaEscolha.length; i++) {
+        if (listaEscolha.length === 3) {
+            listaEscolha[i].style.width = '40%';
+            listaEscolha[i].style.margin = '0 4.5%';
+        }
+        else {
+            listaEscolha[i].style.width = '20%';
+            listaEscolha[i].style.margin = '0 9.5%';
+        }
+    }
+    if (tabelaDescri.length === 1) {
+        tabelaObject.style.margin = '207px auto';
+    }
+    else if (tabelaDescri.length === 2) {
+        tabelaObject.style.margin = '191px auto';
+    }
+    else if (tabelaDescri.length === 3) {
+        tabelaObject.style.margin = '175px auto';
+    }
+    else if (tabelaDescri.length === 4) {
+        tabelaObject.style.margin = '158px auto';
+    }
+    else if (tabelaDescri.length === 5) {
+        tabelaObject.style.margin = '142px auto';
+    }
+    else {
+        tabelaObject.style.margin = '126px auto';
+    }
 }

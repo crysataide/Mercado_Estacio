@@ -3,7 +3,7 @@
     <head>
         <title>Cadastro de Produtos</title>
     <?php require('top_admin.php')?>
-        <form id="form_cadastro" name="form_cadastro" method="post" class="form_cadastro" onsubmit="return validaForm('produto_save')">
+        <form id="form_cadastro" name="form_cadastro" method="post" class="form_cadastro" onsubmit="return validaForm('produto_save')" action="save.php">
             <section class="cadastro">
                 <h2>Cadastro de Produtos</h2>
                 <div class="cad_form">

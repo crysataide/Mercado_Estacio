@@ -14,10 +14,10 @@
 
         } else {
             echo "<script> alert ('NÃO EXISTEM FORNECEDORES CADASTRADOS!');</script>";
-            echo "<script> window.location.href='$url_admin/escolha.php';</script>";
+            echo "<script> window.location.href='$url_admin';</script>";
         }
     ?>
-		<div class="tabela">
+		<div class="tabela" id="tabela">
 			<div class="area_titulo">
                 <h2>FORNECEDORES CADASTRADOS</h2>
                 <a href="cad_fornecedor.php">
@@ -37,18 +37,18 @@
                 </tr>
             <?php do{?>
                 <tr class="tabela_desc">
-                    <td class="desc"><?php echo $dados_fornecedores['NameForn'];?></td>
-                    <td class="desc"><?php echo $dados_fornecedores['EmailForn'];?></td>
-                    <td class="desc"><?php echo $dados_fornecedores['TelForn'];?></td>
-                    <td class="desc"><?php echo $dados_fornecedores['DocForn'];?></td>
-                    <td class="desc"><?php echo $dados_fornecedores['DateForn'];?></td>
+                    <td class="desc"><?=$dados_fornecedores['NameForn'];?></td>
+                    <td class="desc"><?=$dados_fornecedores['EmailForn'];?></td>
+                    <td class="desc"><?=$dados_fornecedores['TelForn'];?></td>
+                    <td class="desc"><?=$dados_fornecedores['DocForn'];?></td>
+                    <td class="desc"><?=$dados_fornecedores['DateForn'];?></td>
                     <td class="acao">
                         <button class="btn_opcao">
                             <div class="btn_acao">
-                                <a class="btn_edit"   href="edit.php?CodForn=<?=$dados_fornecedores['CodForn'];?>">
+                                <a class="btn_edit"   href="edit.php?ID_FORN=<?=$dados_fornecedores['ID_FORN'];?>">
                                     <img src="../Imagens/tabela/lapis.png" class="img_edit" title="Editar">
                                 </a>
-                                <a class="btn_delete" href="javascript:func()" onclick="delete_fornecedor('<?=$dados_fornecedores['CodForn'];?>')">
+                                <a class="btn_delete" href="javascript:func()" onclick="delete_fornecedor('<?=$dados_fornecedores['ID_FORN'];?>')">
                                     <img src="../Imagens/tabela/lixeira.png" class="img_delete" title="Excluir">
                                 </a>
                             </div>

@@ -116,4 +116,7 @@
             mysqli_close($conexao);
         }
     }
+    else {
+        echo "<script> alert('ERROR');</script>";
+    }
 ?>
