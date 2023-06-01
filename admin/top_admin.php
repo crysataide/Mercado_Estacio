@@ -23,10 +23,10 @@
                     <nav>
                         <ul class="menu_admin">
                             <li>
-                                <a href="#"><img src="../Imagens/menu.png"></a>
+                                <a href="#"><img src="<?=$_SESSION['url']."../Imagens/menu.png"?>"></a>
                                 <ul>
-                                    <li><a href="<?=$_SESSION['url_admin'];?>"><img src="../Imagens/cabecalho/">Home</a></li>
-                                    <li><a href="<?=$_SESSION['url']."/exit.php";?>"><img src="../Imagens/cabecalho/">Sair</a></li>
+                                    <li><a href="<?=$_SESSION['url_admin'];?>"><!-- <img src="../Imagens/cabecalho/"> -->Home</a></li>
+                                    <li><a href="<?=$_SESSION['url']."/exit.php";?>"><!-- <img src="../Imagens/cabecalho/"> -->Sair</a></li>
                                 </ul>
                             </li>
                         </ul>

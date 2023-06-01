@@ -17,7 +17,7 @@
             echo "<script> window.location.href='$url_admin';</script>";
         }
     ?>
-		<div class="tabela">
+		<div class="tabela" id="tabela">
             <div class="area_titulo">
                 <h2>PRODUTOS CADASTRADOS</h2>
                 <a href="cad_produtos.php">

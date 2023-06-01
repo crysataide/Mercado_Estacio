@@ -3,7 +3,13 @@
 	src: url(icones.ttf);
 }
 
+html {
+	height: 100%;
+	min-height: 100%;
+}
+
 body {
+	min-height: 100%;
 	font-family: 'Montserrat', sans-serif;
 }
 
@@ -216,15 +222,20 @@ input[name="botao_cancel"]:hover {
 |||  Autor: Crystian Ataide | Data: 22/04/2023	|||
 =================================================*/
 .main-escolha {
-	width: 940px;
+	width: 1000px;
 	margin: 0 auto;
 	padding: 3em 0;
+}
+
+.main-escolha h3 {
+	font-size: 2em;
+	text-align: center;
+	margin-bottom: 1em;
 }
 
 .texto {
 	border-radius: 40px;
 	padding: 20px 40px 40px;
-	/* border: 3px solid cyan; */
 	box-shadow:  22px 22px 42px #cacaca, -22px -22px 42px #f6f6f6;
 }
 
@@ -241,34 +252,33 @@ input[name="botao_cancel"]:hover {
 }
 
 .escolha {
-	display: flex;
-	padding: 50px 6em;
-	justify-content: space-between;
+	padding: 50px 4em;
 }
 
-.escolha h2 {
+.escolha_box {
+	display: flex;
+	justify-content: center;
+}
+
+.escolha_box h2 {
 	font-size: 25px;
 	font-weight: bold;
 	padding-bottom: 20px;
 }
 
-.escolha img {
+.escolha_box img {
 	width: 70%;
 }
 
 .lista {
-	width: 40%;
-	margin: 0 3.5%;
+	width: 20%;
+	margin: 0 4.5%;
 	padding: 30px 20px;
-	position: relative;
 	text-align: center;
 	border-radius: 55px;
 	transition: 0.3s all;
-	/* box-sizing: border-box;
-	border-width: 10px 3px; */
 	border: solid #0b8c9f;
-	/* background-color: #fff; */
-	box-shadow:  25px 25px 50px #a6a6a6, -25px -25px 50px #ffffff;
+	box-shadow: 25px 25px 50px #a6a6a6, -25px -25px 50px #ffffff;
 }
 
 .lista:hover {
@@ -276,6 +286,15 @@ input[name="botao_cancel"]:hover {
 	padding: 30px 20px;
 	transform: scale(105%);
 	border-color: #9ad2c5;
+}
+
+.mapa {
+	padding: 3em 0;
+}
+
+.mapa_conteudo {
+	width: 940px;
+	margin: 0 auto;
 }
 
 /*=================================================
@@ -291,7 +310,7 @@ input[name="botao_cancel"]:hover {
 
 .cadastro {
 	width: 400px;
-	margin: 30px auto;
+	margin: 110px auto;
 	border-radius: 20px;
 	padding: 10px 50px 30px;
 	background-color: #fff;
@@ -319,7 +338,7 @@ input[name="botao_cancel"]:hover {
 =================================================*/
 .tabela {
 	width: 1000px;
-	margin: 100px auto;
+	/* margin: 140px auto; */
 	border-radius: 55px;
 	background-color: #fff;
 	padding: 10px 60px 60px 60px;
@@ -515,14 +534,14 @@ table {
 ||+-----+------------------+--------------+-----+||
 |||  Autor: Crystian Ataide | Data: 26/05/2023	|||
 =================================================*/
-.rodape {
+footer {
 	bottom: 0;
 	width: 100%;
 	height: 90px;
 	display: flex;
 	padding: 20px 0;
+	/* position: absolute; */
 	align-items: center;
-	position: absolute;
 	justify-content: center;
 	background: linear-gradient(135deg, #9ad2c5 0%, #9ad2c5 25%, #0b8c9f 75%, #0b8c9f 100%);
 }

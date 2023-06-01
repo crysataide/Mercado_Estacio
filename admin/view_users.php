@@ -14,10 +14,10 @@
 
         } else {
             echo "<script> alert ('NÃO EXISTEM USUÁRIOS CADASTRADOS!');</script>";
-            echo "<script> window.location.href='$url_admin/view_users.php';</script>";
+            echo "<script> window.location.href='$url_admin';</script>";
         }
     ?>
-		<div class="tabela">
+		<div class="tabela" id="tabela">
             <div class="area_titulo">
                 <h2>USUÁRIOS CADASTRADOS</h2>
                 <a href="cad_user.php">
