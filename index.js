@@ -30,6 +30,7 @@ function validaForm(value){
     //: Variáveis do Produto
     var CodPro   = document.getElementById('CodPro');
     var CodBar   = document.getElementById('CodBar');
+    
     var DescPro  = document.getElementById('DescPro');
     var CategPro = document.getElementById('CategPro');
     //: Variáveis do Fornecedor
@@ -72,43 +73,53 @@ function validaForm(value){
     return true;
 }
 
-function addCaracter(input,size,type) {
-    var formattedValue = '';
-    var value = input.value.replace(/[^0-9.]/g, '');
+//: FUNÇÃO PARA ADICIONAR CARACTERES
+// function addCaracter(input,size,type) {
+//     // const $campoCNPJ = input.value.replace(/(\d{2})?(\d{3})?(\d{3})?(\d{4})?(\d{2})/,"$1.$2.$3/$4-$5");
 
-    if (type === 'cnpj') {
-        for (var i = 0; i < size; i++) {
-            if (i === 2 || i === 5) {
-                formattedValue += '.';
-                }else if (i === 8) {
-                formattedValue += '/';
-                }else if (i === 12) {
-                formattedValue += '-';
-                }
-            formattedValue += value.charAt(i);
-        }
-    }
-    else if (type === 'tel') {
-        for (var i = 0; i < size; i++) {
-            if (i === 0) {
-                formattedValue += '(';
-            } else if (i === 2) {
-                formattedValue += ') ';
-            } else if (i === 7) {
-                formattedValue += '-';
-            }
-            formattedValue += value.charAt(i);
-        }
-    }
-    input.value = formattedValue;
-}
+//     //: 00.111.222/3333-44
 
-//: FUNÇÃO PARA VALIDAR DIMENSÃO DOS OBJETOS NA PÁGINA DE ESCOLHA
+//     var formattedValue = '';
+//     var value = input.value.replace(/[^0-9.]/g,'').replace(/(\..*?)\..*/g, '$1');;
+
+//     if (type === 'cnpj') {
+//         for (var i = 0; i < size; i++) {
+//             if (i === 2 || i === 5) {
+//                 formattedValue += '.';
+//                 }else if (i === 8) {
+//                 formattedValue += '/';
+//                 }else if (i === 12) {
+//                 formattedValue += '-';
+//                 }
+//             formattedValue += value.charAt(i);
+//         }
+//     }
+//     else if (type === 'tel') {
+//         for (var i = 0; i < size; i++) {
+//             if (i === 0) {
+//                 formattedValue += '(';
+//             } else if (i === 2) {
+//                 formattedValue += ') ';
+//             } else if (i === 7) {
+//                 formattedValue += '-';
+//             }
+//             formattedValue += value.charAt(i);
+//         }
+//     }
+//     input.value = formattedValue;
+// }
+
+//: FUNÇÃO PARA VALIDAR DIMENSÃO DOS OBJETOS
 window.onload = function() {
+    var cad_produto = document.getElementById('cad_produto');
+    var cad_usuario = document.getElementById('cad_usuario');
+    var cad_fornecedor = document.getElementById('cad_fornecedor');
+
     var tabelaObject = document.getElementById('tabela');
     var listaEscolha = document.getElementsByClassName('lista');
     var tabelaDescri = document.getElementsByClassName('tabela_desc');
 
+    //: PÁGINA DE ESCOLHA
     for (var i = 0; i < listaEscolha.length; i++) {
         if (listaEscolha.length === 3) {
             listaEscolha[i].style.width = '40%';
@@ -119,6 +130,7 @@ window.onload = function() {
             listaEscolha[i].style.margin = '0 9.5%';
         }
     }
+    //: PÁGINA DE VISUALIZAÇÃO
     if (tabelaDescri.length === 1) {
         tabelaObject.style.margin = '207px auto';
     }
@@ -134,7 +146,14 @@ window.onload = function() {
     else if (tabelaDescri.length === 5) {
         tabelaObject.style.margin = '142px auto';
     }
-    else {
-        tabelaObject.style.margin = '126px auto';
+    //: PÁGINA DE CADASTRO
+    if (cad_produto) {
+        cad_produto.style.margin = '126px auto';
+    }
+    if (cad_usuario) {
+        cad_usuario.style.margin = '126px auto';
+    }
+    if (cad_fornecedor) {
+        cad_fornecedor.style.margin = '87px auto';
     }
 }
