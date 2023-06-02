@@ -4,7 +4,7 @@
         <title>Cadastro de Fornecedor</title>
     <?php require('top_admin.php')?>
         <form id="form_cadastro" name="form_cadastro" method="post" action="save.php" class="form_cadastro" onsubmit="return validaForm('usuario_save')">
-            <section class="cadastro">    
+            <section class="cadastro" id="cad_usuario">
                 <h2>Cadastro de Usuário</h2>
                 <div class="cad_form">
                     <label for="name">Nome:</label>
@@ -26,5 +26,5 @@
             </section>
         </form>
     </body>
-    <?php require('botom_admin.php')?>
+    <?php require('bottom_admin.php')?>
 </html>

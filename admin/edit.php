@@ -104,5 +104,5 @@
             </div>
 		</form>
     </body>
-    <?php require('botom_admin.php')?>
+    <?php require('bottom_admin.php')?>
 </html>

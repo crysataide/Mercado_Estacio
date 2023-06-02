@@ -4,7 +4,7 @@
         <title>Cadastro de Produtos</title>
     <?php require('top_admin.php')?>
         <form id="form_cadastro" name="form_cadastro" method="post" class="form_cadastro" onsubmit="return validaForm('produto_save')" action="save.php">
-            <section class="cadastro">
+            <section class="cadastro" id="cad_produto">
                 <h2>Cadastro de Produtos</h2>
                 <div class="cad_form">
                     <label>Código Interno</label>
@@ -26,5 +26,5 @@
             </section>
         </form>
     </body>
-    <?php require('botom_admin.php')?>
+    <?php require('bottom_admin.php')?>
 </html>

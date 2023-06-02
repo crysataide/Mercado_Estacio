@@ -4,7 +4,7 @@
         <title>Cadastro de Fornecedor</title>
     <?php require('top_admin.php')?>
         <form id="form_cadastro" name="form_cadastro" method="post" action="save.php" class="form_cadastro" onsubmit="return validaForm('fornecedor_save')">
-            <section class="cadastro">    
+            <section class="cadastro" id="cad_fornecedor">
                 <h2>Cadastro de Fornecedores</h2>
                 <div class="cad_form">
                     <label>Nome do Fornecedor</label>
@@ -14,10 +14,10 @@
                     <input type="email" id="EmailForn" name="EmailForn" require>
 
                     <label>Telefone</label>
-                    <input type="tel" id="TelForn" name="TelForn" maxlength="15" oninput="addCaracter(this,15,'tel')" require>
+                    <input type="tel" id="TelForn" name="TelForn" minlength="11" maxlength="11" require>
 
                     <label>CPF/CNPJ do Fornecedor</label>
-                    <input type="text" id="DocForn" name="DocForn" maxlength="18" oninput="addCaracter(this,18,'cnpj')" require autofocus>
+                    <input type="text" id="DocForn" name="DocForn" minlength="14" maxlength="14" require autofocus>
 
                     <label>Data de Nascimento</label>
                     <input type="date" id="DateForn" name="DateForn" placeholder="dd/mm/yyyy" require autofocus>
@@ -29,5 +29,5 @@
             </section>
         </form>
     </body>
-    <?php require('botom_admin.php')?>
+    <?php require('bottom_admin.php')?>
 </html>
