@@ -29,5 +29,5 @@ Projeto destinado ao desenvolvimento de páginas web, no, usando as principais l
     <img src="https://github.com/devicons/devicon/blob/master/icons/css3/css3-original.svg" title="CSS3" alt="CSS3" width="40" height="40"/>&nbsp;
     <img src="https://github.com/devicons/devicon/blob/master/icons/javascript/javascript-original.svg" title="JavaScript" alt="JS" width="40" height="40"/>&nbsp;
     <img src="https://github.com/devicons/devicon/blob/master/icons/php/php-original.svg" title="PHP" alt="PHP" width="50" height="40"/>&nbsp;
-    <img src="https://github.com/devicons/devicon/blob/master/icons/mysql/mysql-original.svg" title="MySQL" alt="MySQL" width="40" height="40"/>&nbsp
+    <img src="https://cdn-icons-png.flaticon.com/128/4248/4248443.png" title="SQL" alt="SQL" width="40" height="40"/>&nbsp
 </div>
