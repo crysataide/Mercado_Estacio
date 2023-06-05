@@ -16,7 +16,7 @@ body {
 
 /*=================================================
 |||     |    1 PARTE: HEADER DA PÁGINA    |     |||
-||+-----+------------------+--------------+-----+||
+||+-----+---------------------------------+-----+||
 |||  Autor: Crystian Ataide | Data: 14/05/2023	|||
 =================================================*/
 header {
@@ -82,6 +82,11 @@ header {
 	clip-path: circle(390px at 150px 24px);
 }
 
+.menu_opcao {
+	display: flex;
+	padding: 10px 0;
+}
+
 .menu a {
 	color: inherit;
 	display: flex;
@@ -96,7 +101,7 @@ header {
 
 .menu a:hover {
 	background: #9ad2c5;
-	transform: scale(102%);
+	transform: scale(101%);
 }
 
 .menu a:active {
@@ -115,7 +120,7 @@ header {
 
 /*=================================================
 |||		|	 2 PARTE: PÁGINA DE LOGIN	  |     |||
-||+-----+------------------+--------------+-----+||
+||+-----+---------------------------------+-----+||
 |||  Autor: Crystian Ataide | Data: 22/04/2023	|||
 =================================================*/
 .container {
@@ -203,7 +208,7 @@ input[name="botao_cancel"]:hover {
 
 /*=================================================
 |||     |   3 PARTE: PÁGINA DE ESCOLHAS   |     |||
-||+-----+------------------+--------------+-----+||
+||+-----+---------------------------------+-----+||
 |||  Autor: Crystian Ataide | Data: 22/04/2023	|||
 =================================================*/
 .main-escolha {
@@ -289,7 +294,7 @@ input[name="botao_cancel"]:hover {
 
 /*=================================================
 |||     |   4 PARTE: PÁGINA DE CADASTRO   |     |||
-||+-----+------------------+--------------+-----+||
+||+-----+---------------------------------+-----+||
 |||  Autor: Crystian Ataide | Data: 01/05/2023	|||
 =================================================*/
 .form_cadastro {
@@ -322,7 +327,7 @@ input[name="botao_cancel"]:hover {
 
 /*=================================================
 |||		|   5 PARTE: PÁGINA DE EXIBIÇÃO   |     |||
-||+-----+------------------+--------------+-----+||
+||+-----+---------------------------------+-----+||
 |||  Autor: Crystian Ataide | Data: 01/05/2023	|||
 =================================================*/
 .tabela {
@@ -483,7 +488,7 @@ table {
 }
 
 .btn_opcao:hover {
-	width: 125px;
+	width: 170px;
 	transition-duration: .3s;
 	background-color: white;
 }
@@ -502,6 +507,13 @@ table {
 	transform: translate(2px ,2px);
 }
 
+.img_view:hover{
+	border: none;
+	border-radius: 50%;
+	transform: scale(110%);
+	background-color: yellow;
+}
+
 .img_edit:hover{
 	border: none;
 	border-radius: 50%;
@@ -516,10 +528,133 @@ table {
 	background-color: red;
 }
 
+/*=================================================
+|||    |    5 PARTE: DETALHES DO PRODUTO    |    |||
+||+----+-----------------------------------+----+||
+|||  Autor: Crystian Ataide | Data: 05/06/2023	|||
+=================================================*/
+.prod_border {
+	width: 940px;
+	border: none;
+	margin: 110px auto;
+	padding: 30px 60px;
+	border-radius: 40px;
+	background-color: #fff;
+	box-shadow:  22px 22px 42px #cacaca, -22px -22px 42px #f6f6f6;
+}
+
+.prod_border h2 {
+	font-size: 30px;
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+.prod_border p {
+	font-size: 18px;
+}
+
+.detalhes_prod {
+	display: flex;
+}
+
+.perfil_produto {
+	padding: 15px;
+	border-right: 3px solid black;
+}
+
+.perfil_produto p {
+	color: black;
+	text-align: center;
+	padding: 15px 0;
+}
+
+.img_perfil--prod {
+	width: 120px;
+	border-radius: 50%;
+	border: 2px solid black;
+}
+
+.desc_prod {
+	padding: 15px;
+}
+
+.desc_prod li {
+	margin-bottom: 10px;
+}
 
 /*=================================================
-|||		|    5 PARTE: RODAPE DA PÁGINA    |     |||
-||+-----+------------------+--------------+-----+||
+|||    |    6 PARTE: DETALHES DA PÁGINA    |    |||
+||+----+-----------------------------------+----+||
+|||  Autor: Crystian Ataide | Data: 05/06/2023	|||
+=================================================*/
+.about_border {
+	width: 940px;
+	border: none;
+	margin: 110px auto;
+	padding: 30px 60px;
+	border-radius: 40px;
+	background-color: #fff;
+	box-shadow:  22px 22px 42px #cacaca, -22px -22px 42px #f6f6f6;
+}
+
+.about_border h2 {
+	font-size: 30px;
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+.about_border p {
+	font-size: 18px;
+}
+
+.text_img_about {
+	padding: 10px;
+	display: flex;
+	align-items: center;
+	border-radius: 15px;
+	border: 3px solid black;
+}
+
+.perfil {
+	padding: 15px;
+	border-left: 3px solid black;
+}
+
+.perfil p {
+	color: black;
+	padding: 15px 0;
+}
+
+.img_perfil {
+	width: 120px;
+	border-radius: 50%;
+	border: 2px solid black;
+}
+
+.perfil ul {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.redes_sociais img {
+	width: 18px;
+	transition: .3s all;
+}
+
+.redes_sociais img:hover {
+	transform: scale(110%);
+}
+
+.about_border li {
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
+}
+
+/*=================================================
+|||		|    7 PARTE: RODAPE DA PÁGINA    |     |||
+||+-----+---------------------------------+-----+||
 |||  Autor: Crystian Ataide | Data: 26/05/2023	|||
 =================================================*/
 footer {

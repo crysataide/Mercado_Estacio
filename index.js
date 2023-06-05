@@ -33,6 +33,7 @@ function validaForm(value){
     
     var DescPro  = document.getElementById('DescPro');
     var CategPro = document.getElementById('CategPro');
+    var ImgPro   = document.getElementById('ImgPro');
     //: Variáveis do Fornecedor
     var NameForn  = document.getElementById('NameForn');
     var EmailForn = document.getElementById('EmailForn');
@@ -52,7 +53,7 @@ function validaForm(value){
         }
     }
     else if (value === 'produto_save') {
-        if (CodPro.value === '' || CodBar.value === '' || DescPro.value === '' || CategPro.value === '') {
+        if (CodPro.value === '' || CodBar.value === '' || DescPro.value === '' || CategPro.value === '' || ImgPro.value === '') {
             alert('Por favor, preencha todos os campos.');
             return false;
         }
@@ -73,44 +74,10 @@ function validaForm(value){
     return true;
 }
 
-//: FUNÇÃO PARA ADICIONAR CARACTERES
-// function addCaracter(input,size,type) {
-//     // const $campoCNPJ = input.value.replace(/(\d{2})?(\d{3})?(\d{3})?(\d{4})?(\d{2})/,"$1.$2.$3/$4-$5");
-
-//     //: 00.111.222/3333-44
-
-//     var formattedValue = '';
-//     var value = input.value.replace(/[^0-9.]/g,'').replace(/(\..*?)\..*/g, '$1');;
-
-//     if (type === 'cnpj') {
-//         for (var i = 0; i < size; i++) {
-//             if (i === 2 || i === 5) {
-//                 formattedValue += '.';
-//                 }else if (i === 8) {
-//                 formattedValue += '/';
-//                 }else if (i === 12) {
-//                 formattedValue += '-';
-//                 }
-//             formattedValue += value.charAt(i);
-//         }
-//     }
-//     else if (type === 'tel') {
-//         for (var i = 0; i < size; i++) {
-//             if (i === 0) {
-//                 formattedValue += '(';
-//             } else if (i === 2) {
-//                 formattedValue += ') ';
-//             } else if (i === 7) {
-//                 formattedValue += '-';
-//             }
-//             formattedValue += value.charAt(i);
-//         }
-//     }
-//     input.value = formattedValue;
-// }
-
-//: FUNÇÃO PARA VALIDAR DIMENSÃO DOS OBJETOS
+//: FUNÇÃO PARA VALIDAR DIMENSÃO DOS OBJETOS E CUSTOM DAS INPUT
 window.onload = function() {
+    var tel_fornecedor = document.getElementById('TelForn');
+    var doc_fornecedor = document.getElementById('DocForn');
     var cad_produto = document.getElementById('cad_produto');
     var cad_usuario = document.getElementById('cad_usuario');
     var cad_fornecedor = document.getElementById('cad_fornecedor');
@@ -118,6 +85,9 @@ window.onload = function() {
     var tabelaObject = document.getElementById('tabela');
     var listaEscolha = document.getElementsByClassName('lista');
     var tabelaDescri = document.getElementsByClassName('tabela_desc');
+
+    $(tel_fornecedor).mask("(00) 90000-0000");
+    $(doc_fornecedor).mask("00.000.000/0000-00");
 
     //: PÁGINA DE ESCOLHA
     for (var i = 0; i < listaEscolha.length; i++) {

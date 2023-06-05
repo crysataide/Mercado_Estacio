@@ -14,10 +14,10 @@
                     <input type="email" id="EmailForn" name="EmailForn" require>
 
                     <label>Telefone</label>
-                    <input type="tel" id="TelForn" name="TelForn" minlength="11" maxlength="11" require>
+                    <input type="tel" id="TelForn" name="TelForn" minlength="11" maxlength="15" require>
 
                     <label>CPF/CNPJ do Fornecedor</label>
-                    <input type="text" id="DocForn" name="DocForn" minlength="14" maxlength="14" require autofocus>
+                    <input type="text" id="DocForn" name="DocForn" minlength="14" maxlength="18" require autofocus>
 
                     <label>Data de Nascimento</label>
                     <input type="date" id="DateForn" name="DateForn" placeholder="dd/mm/yyyy" require autofocus>

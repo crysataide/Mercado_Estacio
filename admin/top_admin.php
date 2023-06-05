@@ -14,13 +14,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="<?=$_SESSION['url']."../Styles/reset.css";?>">
         <link rel="stylesheet" type="text/css" href="<?=$_SESSION['url']."../Styles/style.css";?>">
-        <script src="../index.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
-        <script type="text/javascript">
-            $("#TelForn").mask("(00) 90000-0000");
-            $("#DocForn").mask("00.000.000/0000-00");
-        </script>
+        <script src="../index.js"></script>
     </head>
     <header>
         <div class="cabecalho">
@@ -28,9 +24,11 @@
                 <div class="navicon">
                     <div><img src="<?=$_SESSION['url']."../Imagens/menu.png"?>"></div>
                 </div>
-                <a href="<?=$_SESSION['url_admin'];?>">Home</a>
-                <a href="<?=$_SESSION['url']."/about.php";?>">About</a>
-                <a href="<?=$_SESSION['url']."/exit.php";?>">Exit</a>
+                <div class="menu_opcao">
+                    <a href="<?=$_SESSION['url_admin'];?>">Home</a>
+                    <a href="<?=$_SESSION['url']."/admin/about.php";?>">About</a>
+                    <a href="<?=$_SESSION['url']."/exit.php";?>">Exit</a>
+                </div>
             </nav>
             <div class="barra_topo">
                 <div class="msg_name">
