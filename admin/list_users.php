@@ -12,9 +12,10 @@
 
             $data_users = mysqli_fetch_assoc($select_users);
 
-        } else {
+        }
+        else {
             echo "<script> alert ('NÃO EXISTEM USUÁRIOS CADASTRADOS!');</script>";
-            echo "<script> window.location.href='$url_admin';</script>";
+            echo "<script> window.location.href='$url/admin/cad_user.php';</script>";
         }
     ?>
 		<div class="tabela" id="tabela">

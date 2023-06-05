@@ -11,7 +11,7 @@
                     <input type="text" id="name" name="name" placeholder="Ex: Crystian Ataide" required autofocus>
 
                     <label for="username">Nome de Usuário:</label>
-                    <input type="text" id="username" name="username" placeholder="Ex: crys" required autofocus>
+                    <input type="text" id="username" name="username" placeholder="Ex: crys" oninput="this.value = this.value.replace(/[^a-zA-Z]/g,'');" required autofocus>
 
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" require>

@@ -19,17 +19,17 @@
                 <ul class="escolha_box" id='escolha'>
                     <li class="lista">
                         <h2>Produtos</h2>
-                        <a href="view_produtos.php"><img src="../Imagens/escolha/produtos.png" title="Produtos" alt="Imagem-Produto"></a>
+                        <a href="list_produtos.php"><img src="../Imagens/escolha/produtos.png" title="Produtos" alt="Imagem-Produto"></a>
                     </li>
                     <li class="lista">
                         <h2>Fornecedores</h2>
-                        <a href="view_fornecedores.php"><img src="../Imagens/escolha/fornecedor.png" title="Fornecedores" alt="Imagem-Fornecedor"></a>
+                        <a href="list_fornecedores.php"><img src="../Imagens/escolha/fornecedor.png" title="Fornecedores" alt="Imagem-Fornecedor"></a>
                     </li>
                     <?php
                         if ($_SESSION['username'] == 'admin') { ?>
                             <li class="lista">
                                 <h2>Usuários</h2>
-                                <a href="view_users.php"><img src="../Imagens/escolha/usuarios.png" title="Usuários" alt="Imagem-Usuario"></a>
+                                <a href="list_users.php"><img src="../Imagens/escolha/usuarios.png" title="Usuários" alt="Imagem-Usuario"></a>
                             </li>
                     <?php }?>
                 </ul>

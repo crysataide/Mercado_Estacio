@@ -11,11 +11,11 @@
         if (mysqli_query($conexao,$delete_produto)) {
             mysqli_close($conexao);
             echo "<script> alert ('PRODUTO EXCLUÍDO COM SUCESSO!');</script>";
-            echo "<script> window.location.href='$url/admin/view_produtos.php';</script>";
+            echo "<script> window.location.href='$url/admin/list_produtos.php';</script>";
         }
         else {
             echo "<script> alert ('ERRO: NÃO FOI POSSÍVEL EXCLUIR.');</script>";
-            echo "<script> window.location.href='$url/admin/view_produtos.php';</script>";
+            echo "<script> window.location.href='$url/admin/list_produtos.php';</script>";
             mysqli_close($conexao);
         }
     }
@@ -28,11 +28,11 @@
         if (mysqli_query($conexao,$delete_fornecedor)) {
             mysqli_close($conexao);
             echo "<script> alert ('FORNECEDOR EXCLUÍDO COM SUCESSO!');</script>";
-            echo "<script> window.location.href='$url/admin/view_fornecedores.php';</script>";
+            echo "<script> window.location.href='$url/admin/list_fornecedores.php';</script>";
         }
         else {
             echo "<script> alert ('ERRO: NÃO FOI POSSÍVEL EXCLUIR O FORNECEDOR!');</script>";
-            echo "<script> window.location.href='$url/admin/view_fornecedores.php';</script>";
+            echo "<script> window.location.href='$url/admin/list_fornecedores.php';</script>";
             mysqli_close($conexao);
         }
     }
@@ -45,11 +45,11 @@
         if (mysqli_query($conexao,$delete_user)) {
             mysqli_close($conexao);
             echo "<script> alert ('USUÁRIO EXCLUÍDO COM SUCESSO!');</script>";
-            echo "<script> window.location.href='$url/admin/view_fornecedores.php';</script>";
+            echo "<script> window.location.href='$url/admin/list_fornecedores.php';</script>";
         }
         else {
             echo "<script> alert ('ERRO: NÃO FOI POSSÍVEL EXCLUIR O USUÁRIO!');</script>";
-            echo "<script> window.location.href='$url/admin/view_fornecedores.php';</script>";
+            echo "<script> window.location.href='$url/admin/list_fornecedores.php';</script>";
             mysqli_close($conexao);
         }
     }
