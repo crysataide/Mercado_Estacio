@@ -17,7 +17,7 @@
                     <input type="text" id="DescPro" name="DescPro" require autofocus>
 
                     <label>Categoria</label>
-                    <input type="text" id="CategPro" name="CategPro" placeholder="Descartável" oninput="this.value = this.value.replace(/[^a-zA-Z]/g,'');" require autofocus>
+                    <input type="text" id="CategPro" name="CategPro" placeholder="Descartável" require autofocus>
 
                     <label>Imagem do Produto</label>
                     <input type="file" id="ImgPro" name="ImgPro" accept="image/*" require autofocus>

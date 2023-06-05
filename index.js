@@ -53,7 +53,7 @@ function validaForm(value){
         }
     }
     else if (value === 'produto_save') {
-        if (CodPro.value === '' || CodBar.value === '' || DescPro.value === '' || CategPro.value === '' || ImgPro.value === '') {
+        if (CodPro.value === '' || CodBar.value === '' || DescPro.value === '' || CategPro.value === '') {
             alert('Por favor, preencha todos os campos.');
             return false;
         }
@@ -81,6 +81,9 @@ window.onload = function() {
     var cad_produto = document.getElementById('cad_produto');
     var cad_usuario = document.getElementById('cad_usuario');
     var cad_fornecedor = document.getElementById('cad_fornecedor');
+
+    var btn_opcao = document.getElementsByName('btn_opcao');
+    var btn_viwer = document.getElementsByName('btn_view');
 
     var tabelaObject = document.getElementById('tabela');
     var listaEscolha = document.getElementsByClassName('lista');

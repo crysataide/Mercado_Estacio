@@ -44,7 +44,7 @@
                     <td class="desc"><?=$dados_fornecedores['DocForn'];?></td>
                     <td class="desc"><?=$dados_fornecedores['DateForn'];?></td>
                     <td class="acao">
-                        <button class="btn_opcao">
+                        <button class="btn_opcao" style="width: 125px;">
                             <div class="btn_acao">
                                 <a class="btn_edit"   href="edit.php?ID_FORN=<?=$dados_fornecedores['ID_FORN'];?>">
                                     <img src="../Imagens/tabela/lapis.png" class="img_edit" title="Editar">

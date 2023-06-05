@@ -42,7 +42,7 @@
                     <td class="desc"><?=$dados_produto['DescPro'];?></td>
                     <td class="desc"><?=$dados_produto['CategPro'];?></td>
                     <td class="acao">
-                        <button class="btn_opcao">
+                        <button class="btn_opcao" style="width: 170px;">
                             <div class="btn_acao">
                                 <a class="btn_view"   href="view_produto.php?CodPro=<?=$dados_produto['CodPro'];?>">
                                     <img src="../Imagens/tabela/view.png" class="img_view" title="Visualizar">

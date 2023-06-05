@@ -24,10 +24,22 @@
     </head>
     <body>
         <div class="prod_border">
-            <h2>Detalhes do Produto</h2>
+            <div class="area_titulo--prod">
+                <h2>Detalhes do Produto</h2>
+                <a onclick="history.back();"">
+                    <button class="btn_voltar">
+                        <img src="../Imagens/tabela/voltar.png">
+                        <div class="text_tabela_prod">Voltar</div>
+                    </button>
+                </a>
+            </div>
             <div class="detalhes_prod">
                 <div class="perfil_produto">
+                <?php if ($dados_produto['ImgPro'] != 's/img') {?>
                     <img class="img_perfil--prod" src="<?=$_SESSION['url'].$dados_produto['ImgPro']?>">
+                <?php } else {?>
+                    <img class="img_perfil--prod" src="../Imagens/produtos/sem_img.webp">
+                <?php }?>
                     <p><?=$_GET['CodPro'];?></p>
                 </div>
                 <div class="desc_prod">

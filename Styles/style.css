@@ -488,7 +488,6 @@ table {
 }
 
 .btn_opcao:hover {
-	width: 170px;
 	transition-duration: .3s;
 	background-color: white;
 }
@@ -547,6 +546,54 @@ table {
 	font-size: 30px;
 	text-align: center;
 	margin-bottom: 30px;
+}
+
+.area_titulo--prod a {
+	width: 0;
+	display: block;
+	/* justify-content: end; */
+}
+
+.btn_voltar {
+	width: 125px;
+	height: 45px;
+	border: none;
+	right: -800px;
+	display: flex;
+	cursor: pointer;
+	overflow: hidden;
+	position: relative;
+	border-radius: 40px;
+	align-items: center;
+	background-color: red;
+	transition-duration: .3s;
+	justify-content: flex-start;
+	box-shadow: 2px 2px 10px red;
+}
+
+.btn_voltar img {
+	width: 20px;
+	padding: 7px;
+	display: flex;
+	filter: invert();
+	padding-left: 85px;
+	align-items: center;
+	justify-content: center;
+	transition-duration: .3s;
+}
+
+.text_tabela_prod {
+	/* right: 0%;
+	width: 70%; */
+	color: white;
+	font-size: 1.2em;
+	font-weight: 600;
+	position: absolute;
+	padding-left: 10px;
+}
+
+.btn_voltar:active {
+	transform: translate(2px ,2px);
 }
 
 .prod_border p {
