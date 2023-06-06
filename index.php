@@ -14,7 +14,7 @@
         </header>
         <div class="container">
             <div class="login-form">
-                <form id="form_login" name="form_login" class="form_login" method="post" action="valida.php">
+                <form id="form_login" name="form_login" class="form_login" method="post" action="valida2.php">
                     <h2>Login</h2>
                     <label for="username">Usuário:</label>
                     <input type="text" id="username" name="username" required autofocus>
