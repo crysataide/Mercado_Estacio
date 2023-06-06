@@ -563,8 +563,8 @@ table {
 	cursor: pointer;
 	overflow: hidden;
 	position: relative;
-	border-radius: 40px;
 	align-items: center;
+	border-radius: 40px;
 	background-color: red;
 	transition-duration: .3s;
 	justify-content: flex-start;
