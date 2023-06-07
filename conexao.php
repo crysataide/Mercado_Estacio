@@ -18,7 +18,7 @@
 	$query_builder = TRUE;
 	//: Conecta ao Banco
 	$conexao = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db) or die('Banco de dados indisponível.');
-	echo $conexao;
+	echo "<script>alert('$conexao');</script>";
 	exit;
 
 	// date_default_timezone_set("America/Manaus");
