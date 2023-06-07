@@ -23,6 +23,6 @@
 
 	$host_ip = $_SERVER['HTTP_HOST'];
 
-    $url = "http://".$host_ip."/Projeto_Web";
-	$url_admin = "http://".$host_ip."/Projeto_Web/admin/home.php";
+    $url = "http://".$host_ip."/";
+	$url_admin = "http://".$host_ip."/admin/home.php";
 ?>
