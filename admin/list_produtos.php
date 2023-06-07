@@ -42,7 +42,7 @@
                     <td class="desc"><?=$dados_produto['DescPro'];?></td>
                     <td class="desc"><?=$dados_produto['CategPro'];?></td>
                     <td class="acao">
-                        <button class="btn_opcao" style="width: 125px;">
+                        <button class="btn_opcao">
                             <div class="btn_acao">
                                 <a class="btn_edit"   href="edit.php?CodPro=<?=$dados_produto['CodPro'];?>">
                                     <img src="../Imagens/tabela/lapis.png" class="img_edit" title="Editar">

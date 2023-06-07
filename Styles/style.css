@@ -488,6 +488,7 @@ table {
 }
 
 .btn_opcao:hover {
+	width: 125px;
 	transition-duration: .3s;
 	background-color: white;
 }

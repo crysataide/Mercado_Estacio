@@ -42,7 +42,7 @@
                     <td class="desc"><?php echo $data_users['email'];?></td>
                     <td class="desc"><?php echo $data_users['password'];?></td>
                     <td class="acao">
-                        <button class="btn_opcao" style="width: 125px;">
+                        <button class="btn_opcao">
                             <div class="btn_acao">
                                 <a class="btn_edit"   href="edit.php?ID=<?=$data_users['ID'];?>">
                                     <img src="../Imagens/tabela/lapis.png" class="img_edit img_acao" title="Editar">
