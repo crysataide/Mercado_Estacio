@@ -8,8 +8,6 @@
         $password = $_POST['password'];
 
         $sql_valida_login = mysqli_query($conexao,"SELECT * FROM login WHERE username='".$username."' AND password='".$password."'");
-        var_dump($sql_valida_login);
-        exit;
 
         if (mysqli_num_rows($sql_valida_login)>0){
 
