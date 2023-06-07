@@ -18,11 +18,13 @@
 	$query_builder = TRUE;
 	//: Conecta ao Banco
 	$conexao = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db) or die('Banco de dados indisponível.');
+	echo "<script>alert('$conexao');</script>";
+	exit;
 
-	date_default_timezone_set("America/Manaus");
+	// date_default_timezone_set("America/Manaus");
 
-	$host_ip = $_SERVER['HTTP_HOST'];
+	// $host_ip = $_SERVER['HTTP_HOST'];
 
-    $url = "http://".$host_ip."/Projeto_Web";
-	$url_admin = "http://".$host_ip."/Projeto_Web/admin/home.php";
+    // $url = "http://".$host_ip."/Projeto_Web";
+	// $url_admin = "http://".$host_ip."/Projeto_Web/admin/home.php";
 ?>
