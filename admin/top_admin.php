@@ -9,6 +9,8 @@
         echo "<script> alert ('ERRO: É NECESSÁRIO FAZER LOGIN');</script>";        
         echo "<script> window.location.href='http://localhost/Projeto_Web';</script>";
     }
+
+    header('Content-Type: text/html; charset=utf-8');
 ?>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
