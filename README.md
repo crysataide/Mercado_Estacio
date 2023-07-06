@@ -21,7 +21,6 @@ Projeto destinado ao desenvolvimento de páginas web, usando as principais lingu
 
 #### Desenvolvido por [Crystian Ataide](https://github.com/crysataide)
 #### Link para acessar a página: https://mercadoestacio.herokuapp.com/
-<br>
 
 ## Liguagens:
 
