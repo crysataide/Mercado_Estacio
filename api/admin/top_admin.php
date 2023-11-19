@@ -18,7 +18,7 @@
         <link rel="stylesheet" type="text/css" href="<?=$_SESSION['url']."../Styles/style.css";?>">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
-        <script src="../valida.js"></script>
+        <script src="../functions.js"></script>
     </head>
     <header>
         <div class="cabecalho">
