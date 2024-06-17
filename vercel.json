@@ -2,6 +2,11 @@
     "version": 2,
     "rewrites": [
         { "source": "/", "destination": "/index.php" }
+    ],
+    "redirects": [
+        { "source": "/", "destination": "/index.php", "permanent": true }
+    ],
+    "builds": [
+        { "src": "*.php", "use": "@vercel/php" }
     ]
 }
-  
