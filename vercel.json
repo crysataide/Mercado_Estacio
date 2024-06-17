@@ -5,6 +5,11 @@
     ],
     "redirects": [
         { "source": "/", "destination": "/index.php", "permanent": true }
+    ],
+    "routes": [
+        { "src": "/", "dest": "/index.php" }
+    ],
+    "builds": [
+        { "src": "*.php", "use": "vercel-php" }
     ]
 }
-  
