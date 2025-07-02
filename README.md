@@ -1,4 +1,4 @@
-# Projeto de Desenvolvimento Web
+# Projeto de Desenvolvimento Web - **DEPRECIADO**
 <br>
 
 Projeto destinado ao desenvolvimento de páginas web, usando as principais linguagens: PHP, HTML5, CSS3, JavaScript e SQL. Nomeei de **Mercado Estácio**, onde ela possui páginas de login, visualização, cadastro, edição e exclusão (CRUD).
