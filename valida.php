@@ -1,37 +1,40 @@
-<?php session_start();
+<?php
+session_start();
 
-    require('conexao.php');
+require_once __DIR__ . '/conexao.php';
 
-    if (isset($_POST['username'])){
+if (!isset($conexao) || !($conexao instanceof PDO)) {
+    die("A conexão com o banco de dados não foi estabelecida.");
+}
 
-        $username = $_POST['username'];
-        $password = $_POST['password'];
+$username = $_POST['username'] ?? '';
+$password = $_POST['password'] ?? '';
 
-        // $sql_valida_login = mysqli_query($conexao,"SELECT * FROM login WHERE username='".$username."' AND password='".$password."'");
+if (!empty($username) && !empty($password)) {
+    $stmt = $conexao->prepare("SELECT * FROM login WHERE username = :username AND password = :password LIMIT 1");
+    $stmt->execute([
+        ':username' => $username,
+        ':password' => $password
+    ]);
 
-        $sql_valida_login = $conexao->prepare("SELECT * FROM login WHERE username = :username AND password = :password");
-        $sql_valida_login->bindParam(':username',$username);
-        $sql_valida_login->bindParam(':password',$password);
-        $sql_valida_login->execute();
+    $usuario = $stmt->fetch();
 
-        $registros_login = $sql_valida_login->fetchAll();
+    if ($usuario) {
+        $_SESSION['name']     = $usuario['name'];
+        $_SESSION['username'] = $usuario['username'];
+        $_SESSION['email']    = $usuario['email'] ?? '';
+        $_SESSION['password'] = $usuario['password'];
 
-        if (count($registros_login)>0){
+        $_SESSION['url']       = $url;
+        $_SESSION['url_admin'] = $url_admin;
 
-            // $registros_login=mysqli_fetch_assoc($sql_valida_login);
-
-            $_SESSION['name'] = $registros_login['name'];
-            $_SESSION['username'] = $registros_login['username'];
-            $_SESSION['password'] = $registros_login['password'];
-
-            $_SESSION['url'] = $url;
-            $_SESSION['url_admin'] = $url_admin;
-
-            echo "<script> window.location.href='$url_admin';</script>";
-        }
-        else {
-            echo "<script> alert('Erro ao fazer login. Tente novamente ou fale com o Administrador.');</script>";
-            echo "<script> window.location.href='$url';</script>";
-        }
+        header("Location: " . $url_admin);
+        exit;
+    } else {
+        echo "<script>alert('Erro ao fazer login. Usuário ou senha incorretos.'); window.location.href = 'index.php';</script>";
+        exit;
     }
-?>
+} else {
+    echo "<script>alert('Por favor, preencha todos os campos.'); window.location.href = 'index.php';</script>";
+    exit;
+}

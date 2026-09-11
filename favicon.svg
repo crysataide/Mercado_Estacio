@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <defs>
+    <linearGradient id="grad-primary" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00d2ff"/>
+      <stop offset="50%" stop-color="#0080ff"/>
+      <stop offset="100%" stop-color="#7000ff"/>
+    </linearGradient>
+    <linearGradient id="grad-accent" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#d4a72c"/>
+      <stop offset="100%" stop-color="#ffd166"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Fundo escuro sutil com borda arredondada -->
+  <rect width="48" height="48" rx="12" fill="#0d131b"/>
+  <rect x="0.5" y="0.5" width="47" height="47" rx="11.5" stroke="#212b36" stroke-width="1"/>
+
+  <!-- Símbolo: Capelo/Pilar Acadêmico + Cesta/Grade Tech de Mercado -->
+  <!-- Base do pilar/cesta -->
+  <path d="M12 20 L24 14 L36 20 L24 26 Z" fill="url(#grad-primary)" filter="url(#glow)"/>
+  
+  <!-- Pilares estilizados / linhas de cesta -->
+  <path d="M16 23 L16 32 C16 34.5 19.5 36 24 36 C28.5 36 32 34.5 32 32 L32 23" 
+        stroke="url(#grad-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <path d="M24 26 L24 36" stroke="#00d2ff" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+  
+  <!-- Ponto dourado / medalha acadêmica no topo -->
+  <circle cx="24" cy="14" r="2.5" fill="url(#grad-accent)"/>
+  <path d="M24 16.5 L24 19" stroke="url(#grad-accent)" stroke-width="1.5" stroke-linecap="round"/>
+</svg>

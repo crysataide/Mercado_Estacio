@@ -1,63 +1,78 @@
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
-        <title>Mercado Estácio - Produtos</title>
-    <?php require('top_admin.php');
+        <title>Mercado Estácio — Produtos</title>
+    <?php 
+        require_once('top_admin.php');
+        require_once('../conexao.php');
 
-        require('../conexao.php');
-
-        $select_produto = mysqli_query($conexao, "SELECT * FROM produtos ORDER BY ID_PRO");
-    
-        if (mysqli_num_rows($select_produto) > 0) {
-
-            $dados_produto = mysqli_fetch_assoc($select_produto);
-
-        }
-        else {
-            echo "<script> alert ('NÃO EXISTEM PRODUTOS CADASTRADOS!');</script>";
-            echo "<script> window.location.href='$url/admin/cad_produtos.php';</script>";
-        }
+        $stmt = $conexao->query("SELECT * FROM produtos ORDER BY codpro ASC");
+        $produtos = $stmt->fetchAll();
+        $total = count($produtos);
     ?>
-		<div class="tabela" id="tabela">
-            <div class="area_titulo">
-                <h2>PRODUTOS CADASTRADOS</h2>
-                <a href="cad_produtos.php">
-                    <button class="btn_incluir">
-                        <img src="../Imagens/tabela/incluir.png">
-                        <div class="text">Incluir</div>
-                    </button>
-                </a>
+        <main class="table-page-container">
+            <div class="data-panel">
+                <div class="data-panel-header">
+                    <div class="data-title-group">
+                        <h2>Catálogo de Produtos</h2>
+                        <span class="data-count-badge"><?=$total;?> <?=($total === 1 ? 'PRODUTO REGISTRADO' : 'PRODUTOS REGISTRADOS');?></span>
+                    </div>
+                    <a href="cad_produtos.php" class="btn btn-primary btn-sm">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                        Novo Produto
+                    </a>
+                </div>
+
+                <?php if ($total === 0): ?>
+                    <div style="padding: 60px 20px; text-align: center;">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--text-dim)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin: 0 auto 16px;"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+                        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px;">Nenhum produto cadastrado no momento.</p>
+                        <a href="cad_produtos.php" class="btn btn-primary btn-sm">Cadastrar Primeiro Produto</a>
+                    </div>
+                <?php else: ?>
+                    <div class="table-responsive">
+                        <table>	
+                            <thead>
+                                <tr>
+                                    <th>Cód. Interno</th>
+                                    <th>Cód. de Barras</th>
+                                    <th>Descrição do Item</th>
+                                    <th>Categoria</th>
+                                    <th style="text-align: right;">Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <?php foreach ($produtos as $p): 
+                                $codPro   = htmlspecialchars($p['codpro'] ?? $p['CodPro'] ?? '');
+                                $codBar   = htmlspecialchars($p['codbar'] ?? $p['CodBar'] ?? '');
+                                $descPro  = htmlspecialchars($p['descpro'] ?? $p['DescPro'] ?? '');
+                                $categPro = htmlspecialchars($p['categpro'] ?? $p['CategPro'] ?? 'Geral');
+                            ?>
+                                <tr>
+                                    <td class="code-mono"><?=$codPro;?></td>
+                                    <td class="dim-mono"><?=$codBar;?></td>
+                                    <td style="font-weight: 500;"><?=$descPro;?></td>
+                                    <td><span class="badge-tag"><?=$categPro;?></span></td>
+                                    <td class="action-cell">
+                                        <div class="action-buttons">
+                                            <a href="view_produto.php?CodPro=<?=$codPro;?>" class="action-btn btn-view" title="Visualizar Detalhes">
+                                                <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" stroke-width="2" fill="none"></path><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" fill="none"></circle></svg>
+                                            </a>
+                                            <a href="edit.php?CodPro=<?=$codPro;?>" class="action-btn btn-edit" title="Editar Produto">
+                                                <svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" stroke="currentColor" stroke-width="2" fill="none"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" stroke="currentColor" stroke-width="2" fill="none"></path></svg>
+                                            </a>
+                                            <button type="button" onclick="delete_produto('<?=$codPro;?>')" class="action-btn btn-del" title="Excluir Produto">
+                                                <svg viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6" stroke="currentColor" stroke-width="2" fill="none"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" stroke="currentColor" stroke-width="2" fill="none"></path></svg>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                <?php endif; ?>
             </div>
-            <table>	
-                <tr class="tabela_cabecalho">
-                    <th>CÓDIGO INTERNO</th>
-                    <th>CÓDIGO DE BARRAS</th>
-                    <th>DESCRIÇÃO</th>
-                    <th>CATEGORIA</th>
-                </tr>
-            <?php do{?>
-                <tr class="tabela_desc">
-                    <td class="desc"><?=$dados_produto['CodPro'];?></td>
-                    <td class="desc"><?=$dados_produto['CodBar'];?></td>
-                    <td class="desc"><?=$dados_produto['DescPro'];?></td>
-                    <td class="desc"><?=$dados_produto['CategPro'];?></td>
-                    <td class="acao">
-                        <button class="btn_opcao">
-                            <div class="btn_acao">
-                                <a class="btn_edit"   href="edit.php?CodPro=<?=$dados_produto['CodPro'];?>">
-                                    <img src="../Imagens/tabela/lapis.png" class="img_edit" title="Editar">
-                                </a>
-                                <a class="btn_delete" href="javascript:func()" onclick="delete_produto('<?=$dados_produto['CodPro'];?>')">
-                                    <img src="../Imagens/tabela/lixeira.png" class="img_delete" title="Excluir">
-                                </a>
-                            </div>
-                            <img src="../Imagens/tabela/opcao.png" class="img_opcao">
-                        </button>
-                    </td>
-                </tr>
-            <?php }while ($dados_produto = mysqli_fetch_assoc($select_produto));?>
-            </table>
-		</div>
-    </body>
-    <?php require('bottom_admin.php')?>
-</html>
+        </main>
+
+    <?php require_once('bottom_admin.php')?>

@@ -1,56 +1,71 @@
-<?php //session_start();
+<?php
+// Carregar variáveis de ambiente locais caso o arquivo exista
+$envFiles = [
+    __DIR__ . '/.env.development.local',
+    __DIR__ . '/.env.local',
+    __DIR__ . '/.env',
+];
 
-	//: Conexão com XAMPP
-	// $servidor = "localhost";
-	// $usuario  = "Crystian";
-	// $senha 	  = "123";
-	// $db_name  = "mercado_estacio";
-	// $port	  = "3306";
+foreach ($envFiles as $envFile) {
+    if (file_exists($envFile)) {
+        $lines = file($envFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+        foreach ($lines as $line) {
+            $line = trim($line);
+            if ($line === '' || strpos($line, '#') === 0) continue;
+            if (strpos($line, '=') !== false) {
+                list($name, $value) = explode('=', $line, 2);
+                $name = trim($name);
+                $value = trim($value);
+                $value = trim($value, "\"'"); // Remove aspas extras
+                if (!getenv($name)) {
+                    putenv("{$name}={$value}");
+                    $_ENV[$name] = $value;
+                    $_SERVER[$name] = $value;
+                }
+            }
+        }
+        break; // Carrega o primeiro arquivo de ambiente disponível
+    }
+}
 
-	// $conexao = mysqli_connect($servidor, $usuario, $senha, $db_name, $port) or die('Banco de dados indisponível.');
+// Suporte a connection string (POSTGRES_URL / DATABASE_URL) ou variáveis individuais
+$databaseUrl = getenv('POSTGRES_URL') ?: getenv('DATABASE_URL');
 
-	//: Obter informações de conexão do Heroku ClearDB
-	// $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
-	// $cleardb_server = $cleardb_url["host"];
-	// $cleardb_username = $cleardb_url["user"];
-	// $cleardb_password = $cleardb_url["pass"];
-	// $cleardb_db = substr($cleardb_url["path"],1);
-	// $active_group = 'default';
-	// $query_builder = TRUE;
-	//: Conecta ao Banco
-	// $conexao = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db) or die('Banco de dados indisponível.');
+if ($databaseUrl) {
+    $components = parse_url($databaseUrl);
+    $host     = $components['host'] ?? 'localhost';
+    $port     = $components['port'] ?? 5432;
+    $user     = $components['user'] ?? 'default';
+    $password = $components['pass'] ?? '';
+    $dbname   = isset($components['path']) ? ltrim($components['path'], '/') : 'verceldb';
+} else {
+    $host     = getenv('POSTGRES_HOST')     ?: getenv('PGHOST')     ?: 'localhost';
+    $port     = getenv('POSTGRES_PORT')     ?: getenv('PGPORT')     ?: '5432';
+    $dbname   = getenv('POSTGRES_DATABASE') ?: getenv('PGDATABASE') ?: 'verceldb';
+    $user     = getenv('POSTGRES_USER')     ?: getenv('PGUSER')     ?: 'default';
+    $password = getenv('POSTGRES_PASSWORD') ?: getenv('PGPASSWORD') ?: '';
+}
 
-	//: Conexão de banco com a Vercel e PostgreSQL
-	$url = getenv('POSTGRES_URL');
+$sslmode = 'require';
 
-	// Extrair informações da URL de conexão
-	$components = parse_url($url);
+try {
+    $dsn = "pgsql:host={$host};port={$port};dbname={$dbname};sslmode={$sslmode}";
+    $conexao = new PDO($dsn, $user, $password, [
+        PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        PDO::ATTR_EMULATE_PREPARES   => true,
+        PDO::ATTR_TIMEOUT            => 10,
+    ]);
 
-	$host = $components['host'];
-	$port = $components['port'] ?? 5432; // 5432 é a porta padrão do PostgreSQL
-	$user = $components['user'];
-	$password = $components['pass'];
-	$dbname = ltrim($components['path'], '/');
-	$sslmode = 'require';
+    // Configuração de Fuso Horário
+    date_default_timezone_set("America/Manaus");
 
-	// Criar a string de conexão DSN
-	$dsn = "pgsql:host=$host;port=$port;dbname=$dbname;sslmode=$sslmode";
+    // Definição de URLs base dinâmicas
+    $host_ip  = $_SERVER['HTTP_HOST'] ?? 'localhost:8000';
+    $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https://" : "http://";
+    $url       = $protocol . $host_ip . "/";
+    $url_admin = $url . "admin/home.php";
 
-	try {
-		// Criar uma instância PDO
-		$conexao = new PDO($dsn, $user, $password, [
-			PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-			PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-		]);
-		date_default_timezone_set("America/Manaus");
-	
-		$host_ip = $_SERVER['HTTP_HOST'];
-	
-		$url = "http://".$host_ip."/";
-		$url_admin = "http://".$host_ip."/admin/home.php";
-
-		echo "Conexão com o banco de dados PostgreSQL realizada com sucesso!";
-	} catch (PDOException $e) {
-		echo 'Falha na conexão: ' . $e->getMessage();
-	}
-?>
+} catch (PDOException $e) {
+    die("Falha na conexão com o banco de dados: " . $e->getMessage());
+}

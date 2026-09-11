@@ -1,1 +1,19 @@
+# Ambiente e Credenciais Locais
+.env
+.env*.local
+.env.development.local
+.env.production.local
+
+# Vercel
 .vercel
+
+# Node e Dependências Legadas
+node_modules/
+package-lock.json
+
+# Sistema operacional e IDEs
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log

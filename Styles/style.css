@@ -1,753 +1,1131 @@
-/* @font-face {
-	font-family: 'icones';
-	src: url(icones.ttf);
-} */
+/* ==========================================================================
+   MERCADO ESTÁCIO - DESIGN SYSTEM (DARK TECH PREMIUM)
+   Inspirado em: crys-dev.vercel.app, status-api-vtex.vercel.app & hustla.app
+   ========================================================================== */
 
-html {
-	height: 100%;
-	min-height: 100%;
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    /* Paleta de Fundo & Painéis */
+    --bg-main: #0a0e14;
+    --bg-surface: #10161f;
+    --bg-surface-elevated: #16202c;
+    --bg-surface-card: #0d131b;
+    --bg-glass: rgba(16, 22, 31, 0.85);
+
+    /* Bordas & Separadores */
+    --border-subtle: #212b36;
+    --border-hover: #334454;
+    --border-active: #00e5ff;
+    --border-glow: rgba(0, 229, 255, 0.25);
+
+    /* Cores de Marca & Acentos */
+    --brand-primary: #00e5ff;
+    --brand-primary-hover: #38edff;
+    --brand-blue: #0077b6;
+    --brand-gradient: linear-gradient(135deg, #00e5ff 0%, #0088ff 50%, #6366f1 100%);
+    --brand-gradient-hover: linear-gradient(135deg, #38edff 0%, #38a5ff 50%, #818cf8 100%);
+    
+    /* Cores Semânticas */
+    --accent-gold: #d4a72c;
+    --accent-gold-dim: rgba(212, 167, 44, 0.15);
+    --accent-success: #3fb950;
+    --accent-success-dim: rgba(63, 185, 80, 0.15);
+    --accent-danger: #f0605a;
+    --accent-danger-dim: rgba(240, 96, 90, 0.15);
+
+    /* Tipografia & Contrastes */
+    --text-primary: #f0f6fc;
+    --text-muted: #8b949e;
+    --text-dim: #546274;
+
+    /* Fontes */
+    --font-display: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+    --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+    --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+
+    /* Sombras & Brilhos */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.35);
+    --shadow-md: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+    --shadow-glow-cyan: 0 0 25px -3px rgba(0, 229, 255, 0.2);
+    --shadow-glow-success: 0 0 20px -3px rgba(63, 185, 80, 0.25);
+    
+    /* Transições */
+    --trans-fast: 0.15s ease;
+    --trans-smooth: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* ==========================================================================
+   TEMA CLARO (LIGHT THEME)
+   ========================================================================== */
+[data-theme="light"] {
+    --bg-main: #f4f6f8;
+    --bg-surface: #ffffff;
+    --bg-surface-elevated: #f0f3f6;
+    --bg-surface-card: #f8fafc;
+    --bg-glass: rgba(255, 255, 255, 0.9);
+
+    --border-subtle: #d0d7de;
+    --border-hover: #8c959f;
+    --border-active: #0077b6;
+    --border-glow: rgba(0, 119, 182, 0.25);
+
+    --brand-primary: #0077b6;
+    --brand-primary-hover: #0096c7;
+    --brand-blue: #023e8a;
+    --brand-gradient: linear-gradient(135deg, #0077b6 0%, #0096c7 50%, #4361ee 100%);
+    --brand-gradient-hover: linear-gradient(135deg, #0096c7 0%, #48cae4 50%, #4895ef 100%);
+
+    --accent-gold: #b45309;
+    --accent-gold-dim: rgba(180, 83, 9, 0.12);
+    --accent-success: #1a7f37;
+    --accent-success-dim: rgba(26, 127, 55, 0.12);
+    --accent-danger: #cf222e;
+    --accent-danger-dim: rgba(207, 34, 46, 0.12);
+
+    --text-primary: #1f2328;
+    --text-muted: #57606a;
+    --text-dim: #8c959f;
+
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 8px 24px rgba(140, 149, 159, 0.2);
+}
+
+[data-theme="light"] body {
+    background-color: var(--bg-main);
+    background-image: 
+        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0, 119, 182, 0.08), transparent),
+        radial-gradient(circle at 90% 80%, rgba(67, 97, 238, 0.05), transparent 40%),
+        repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.02) 0px, transparent 1px, transparent 2px);
+}
+
+[data-theme="light"] thead th {
+    background: #f6f8fa;
+    color: var(--text-muted);
+}
+
+[data-theme="light"] tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.025);
+}
+
+[data-theme="light"] .map-frame-container iframe {
+    filter: none;
+}
+
+[data-theme="light"] input[disabled] {
+    background: #e9ecef;
+}
+
+[data-theme="light"] .btn-primary,
+[data-theme="light"] input[name="botao_entrar"],
+[data-theme="light"] input[name="botao_salvar"] {
+    color: #ffffff;
+}
+
+/* ==========================================================================
+   ESTRUTURA GERAL & BACKGROUND TECH
+   ========================================================================== */
 body {
-	min-height: 100%;
-	background: url(../Imagens/fundo/fundo-branco-abstrato_23-2148810353.avif);
-	font-family: 'Montserrat', sans-serif;
+    background-color: var(--bg-main);
+    background-image: 
+        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0, 180, 216, 0.15), transparent),
+        radial-gradient(circle at 90% 80%, rgba(99, 102, 241, 0.08), transparent 40%),
+        repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.015) 0px, transparent 1px, transparent 2px);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-/*=================================================
-|||     |    1 PARTE: HEADER DA PÁGINA    |     |||
-||+-----+---------------------------------+-----+||
-|||  Autor: Crystian Ataide | Data: 14/05/2023	|||
-=================================================*/
+/* ==========================================================================
+   HEADER / BARRA SUPERIOR TECH
+   ========================================================================== */
 header {
-	background: linear-gradient(135deg, #0b8c9f 0%, #0b8c9f 25%, #9ad2c5 75%, #9ad2c5 100%);
+    background: var(--bg-glass);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border-subtle);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: var(--trans-smooth);
 }
 
 .cabecalho_inicio {
-	display: flex;
-	align-items: center;
-	padding-right: 15px;
-	justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 20px;
+    border-bottom: 1px solid var(--border-subtle);
 }
 
-.cabecalho_inicio .img_estacio {
-	width: 300px;
+.cabecalho_inicio .brand_logo {
+    height: 52px;
+    width: auto;
+    filter: drop-shadow(0 4px 12px rgba(0, 229, 255, 0.2));
+    transition: transform var(--trans-smooth);
 }
 
-.cabecalho_inicio .img_carrinho {
-	width: 75px;
+.cabecalho_inicio .brand_logo:hover {
+    transform: scale(1.02);
 }
 
-.cabecalho{
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
+.cabecalho {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
 }
 
-.img_logo {
-	display: flex;
-	align-items: center;
-	padding-right: 30px;
+.brand-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 14px;
 }
 
-.img_estacio {
-	width: 200px;
+.brand-wrapper .brand-logo-img {
+    height: 42px;
+    width: auto;
+    filter: drop-shadow(0 2px 8px rgba(0, 229, 255, 0.15));
 }
 
-.img_carrinho{
-	width: 55px;
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 10px;
+    background: rgba(13, 19, 27, 0.7);
+    border: 1px solid var(--border-subtle);
+    border-radius: 999px;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--text-muted);
 }
 
-.barra_topo{
-	display: flex;
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--accent-success);
+    box-shadow: 0 0 10px 1px var(--accent-success);
+    animation: pulseGlow 2s infinite ease-in-out;
 }
 
-.msg_name{
-	display: flex;
-	padding: 1rem;
-	align-items: center;
+@keyframes pulseGlow {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.85); }
 }
 
 .menu {
-	display: flex;
-	background: #f1ecec;
-	color: rgba(0, 0, 0, 0.87);
-	clip-path: circle(24px at 32px 24px);
-	transition: -webkit-clip-path 0.5625s, clip-path 0.375s;
-}
-
-.menu:hover {
-	transition-duration: 0.75s;
-	transition-timing-function: ease-out;
-	clip-path: circle(390px at 150px 24px);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    padding: 4px;
+    border-radius: 10px;
 }
 
 .menu_opcao {
-	display: flex;
-	padding: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 4px;
 }
 
-.menu a {
-	color: inherit;
-	display: flex;
-	cursor: pointer;
-	padding: 0 20px;
-	user-select: none;
-	transition: .3s all;
-	align-items: center;
-	text-decoration: none;
-	border-left: 1px solid black;
+.menu_opcao a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-display);
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: var(--trans-fast);
 }
 
-.menu a:hover {
-	background: #9ad2c5;
-	transform: scale(101%);
+.menu_opcao a:hover {
+    color: var(--text-primary);
+    background: var(--bg-surface-elevated);
 }
 
-.menu a:active {
-	font-size: 15px;
-	background: #80b7aa;
+.menu_opcao a.active {
+    color: var(--brand-primary);
+    background: rgba(0, 229, 255, 0.08);
+    border: 1px solid rgba(0, 229, 255, 0.2);
 }
 
-.navicon {
-	cursor: pointer;
-	padding: 10px 18px;
+.menu_opcao a.btn-exit {
+    color: var(--accent-danger);
 }
 
-.navicon img {
-	width: 28px;
+.menu_opcao a.btn-exit:hover {
+    background: var(--accent-danger-dim);
 }
 
-/*=================================================
-|||		|	 2 PARTE: PÁGINA DE LOGIN	  |     |||
-||+-----+---------------------------------+-----+||
-|||  Autor: Crystian Ataide | Data: 22/04/2023	|||
-=================================================*/
-.container {
-	width: 400px;
-	margin: 100px auto;
-	background: #fff;
-	border-radius: 55px;
-	padding: 10px 60px 20px;
-	box-shadow:  22px 22px 42px #cacaca,
-				-22px -22px 42px #f6f6f6;
+.user-profile-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 4px 12px 4px 4px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 999px;
 }
 
-.login-form h2 {
-	margin: 30px;
-	font-size: 35px;
-	text-align: center;
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--brand-gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: #0a0e14;
 }
 
-.msg_name label {
-	display: flex;
-	padding: 1rem;
+.user-name {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--text-primary);
 }
 
-input {
-	width: 100%;
-	padding: 10px;
-	display: block;
-	font-size: 16px;
-	border-radius: 4px;
-	margin-bottom: 20px;
-	box-sizing: border-box;
-	border: 1px solid #ccc;
+/* ==========================================================================
+   PÁGINA DE LOGIN (CENTRALIZADA, GLASS CARD)
+   ========================================================================== */
+.login-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    position: relative;
 }
 
-.cad_btn {
-	display: flex;
-	justify-content: space-between;
+.login-card {
+    width: 100%;
+    max-width: 440px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 36px 32px;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+    transition: border-color var(--trans-smooth);
 }
 
-input[name="botao_entrar"] {
-	width: 100%;
-	border: none;
-	color: #fff;
-	padding: 12px;
-	cursor: pointer;
-	font-size: 16px;
-	margin-top: 30px;
-	border-radius: 4px;
-	transition: .2s all;
-	background-color: #4CAF50;
+.login-card:hover {
+    border-color: var(--border-hover);
 }
 
-input[name="botao_cancel"],
+.login-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--brand-gradient);
+}
+
+.login-card-header {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.login-card-header h2 {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+    letter-spacing: -0.02em;
+}
+
+.login-card-header p {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--text-muted);
+}
+
+.form-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="file"],
+select {
+    width: 100%;
+    padding: 12px 14px;
+    background: var(--bg-surface-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    transition: var(--trans-fast);
+    outline: none;
+}
+
+input:focus,
+select:focus {
+    border-color: var(--brand-primary);
+    box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15);
+    background: #0e1622;
+}
+
+input[disabled] {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background: #080c10;
+}
+
+input[type="file"] {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   SISTEMA DE BOTÕES
+   ========================================================================== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: var(--trans-smooth);
+    text-decoration: none;
+    user-select: none;
+}
+
+.btn-primary,
+input[name="botao_entrar"],
 input[name="botao_salvar"] {
-	width: 90%;
-	border: none;
-	color: #fff;
-	padding: 12px;
-	cursor: pointer;
-	font-size: 16px;
-	border-radius: 4px;
-	transition: .2s all;
+    background: var(--brand-gradient);
+    color: #0a0e14;
+    font-weight: 700;
+    border: none;
+    box-shadow: 0 2px 12px rgba(0, 229, 255, 0.3);
+    cursor: pointer;
 }
 
-input[name="botao_salvar"] {
-	margin: 10px 0 0 10px;
-	background-color: #4CAF50;
-}
-
-input[name="botao_cancel"] {
-	margin: 10px 10px 0 0;
-	background-color: red;
-}
-
+.btn-primary:hover,
 input[name="botao_entrar"]:hover,
 input[name="botao_salvar"]:hover {
-	background-color: #3e8e41;
-	transform: scale(102%);
+    background: var(--brand-gradient-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 229, 255, 0.45);
 }
 
+.btn-secondary,
+input[name="botao_cancel"] {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-muted);
+    cursor: pointer;
+}
+
+.btn-secondary:hover,
 input[name="botao_cancel"]:hover {
-	background-color: #9e0000;
-	transform: scale(102%);
+    border-color: var(--border-hover);
+    color: var(--text-primary);
+    background: var(--bg-surface-elevated);
 }
 
-/*=================================================
-|||     |   3 PARTE: PÁGINA DE ESCOLHAS   |     |||
-||+-----+---------------------------------+-----+||
-|||  Autor: Crystian Ataide | Data: 22/04/2023	|||
-=================================================*/
-.main-escolha {
-	width: 1000px;
-	margin: 0 auto;
-	padding: 3em 0;
+.btn-danger {
+    background: var(--accent-danger-dim);
+    border: 1px solid rgba(240, 96, 90, 0.3);
+    color: var(--accent-danger);
 }
 
-.main-escolha h3 {
-	font-size: 2em;
-	text-align: center;
-	margin-bottom: 1em;
+.btn-danger:hover {
+    background: rgba(240, 96, 90, 0.25);
+    border-color: var(--accent-danger);
+    transform: translateY(-1px);
 }
 
-.texto {
-	background: white;
-	border-radius: 40px;
-	padding: 20px 40px 40px;
-	box-shadow:  22px 22px 42px #c1c1c1, -22px -22px 42px #f6f6f6;
+.btn-sm {
+    padding: 6px 12px;
+    font-size: 0.78rem;
+    border-radius: 6px;
 }
 
-.texto h2 {
-	clear: left;
-	font-size: 1.5em;
-	text-align: center;
-	margin-bottom: 1.5em;
+.btn-block {
+    width: 100%;
 }
 
-.texto p {
-	font-size: 0.95em;
-	margin-bottom: 1em;
-}
-
-.escolha {
-	padding: 50px 4em;
-}
-
-.escolha_box {
-	display: flex;
-	justify-content: center;
-}
-
-.escolha_box h2 {
-	font-size: 25px;
-	font-weight: bold;
-	padding-bottom: 20px;
-}
-
-.escolha_box img {
-	width: 70%;
-}
-
-.lista {
-	width: 20%;
-	margin: 0 4.5%;
-	padding: 30px 20px;
-	text-align: center;
-	border-radius: 55px;
-	transition: 0.3s all;
-	border: solid #0b8c9f;
-	box-shadow: 25px 25px 50px #a6a6a6, -25px -25px 50px #ffffff;
-}
-
-.lista:hover {
-	cursor: pointer;
-	padding: 30px 20px;
-	transform: scale(105%);
-	border-color: #9ad2c5;
-}
-
-.lista:hover .lista img {
-	width: 80%;
-}
-
-.mapa {
-	padding: 3em 0;
-}
-
-.mapa_conteudo {
-	width: 940px;
-	margin: 0 auto;
-}
-
-/*=================================================
-|||     |   4 PARTE: PÁGINA DE CADASTRO   |     |||
-||+-----+---------------------------------+-----+||
-|||  Autor: Crystian Ataide | Data: 01/05/2023	|||
-=================================================*/
-.form_cadastro {
-	width: 550px;
+/* ==========================================================================
+   DASHBOARD / HOME (INSPIRADO EM HUSTLA)
+   ========================================================================== */
+.main-dashboard {
+    max-width: 1240px;
     margin: 0 auto;
+    padding: 36px 24px 60px;
+    width: 100%;
+    flex: 1;
 }
 
-.cadastro {
-	width: 400px;
-	margin: 110px auto;
-	border-radius: 20px;
-	padding: 10px 50px 30px;
-	background-color: #fff;
-	box-shadow: 0px 0px 20px #d7c5c5;
+.hero-greeting {
+    margin-bottom: 32px;
+    border-bottom: 1px solid var(--border-subtle);
+    padding-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 16px;
 }
 
-.cadastro h2 {
-	margin: 25px 0;
-	font-size: 20px;
-	text-align: center;
+.hero-greeting h1 {
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
 }
 
-.cadastro p {
-	font-size: 13px;
+.hero-greeting p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    max-width: 58ch;
 }
 
-.cad_form {
-    margin: 15px 0 20px;
+.system-clock {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    text-align: right;
 }
 
-/*=================================================
-|||		|   5 PARTE: PÁGINA DE EXIBIÇÃO   |     |||
-||+-----+---------------------------------+-----+||
-|||  Autor: Crystian Ataide | Data: 01/05/2023	|||
-=================================================*/
-.tabela {
-	width: 1000px;
-	border-radius: 55px;
-	background-color: #fff;
-	padding: 10px 60px 60px 60px;
-	box-shadow:  22px 22px 42px #cacaca,
-				-22px -22px 42px #f6f6f6;
+.system-clock strong {
+    color: var(--brand-primary);
 }
 
-.area_titulo h2 {
-	margin: 20px;
-	font-size: 35px;
-	text-align: center;
+/* Grid de Cards de Escolha (Hustla Style) */
+.escolha-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
 }
 
-.area_titulo a {
-	width: 0;
-	display: block;
+.escolha-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 28px;
+    position: relative;
+    overflow: hidden;
+    transition: var(--trans-smooth);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.btn_incluir {
-	width: 45px;
-	height: 45px;
-	border: none;
-	display: flex;
-	cursor: pointer;
-	overflow: hidden;
-	position: relative;
-	border-radius: 50%;
-	align-items: center;
-	transition-duration: .3s;
-	justify-content: flex-start;
-	background-color: #4CAF50;
-	box-shadow: 2px 2px 10px #4CAF50;
+.escolha-card:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
 }
 
-.btn_incluir img {
-	width: 20px;
-	padding: 7px;
-	display: flex;
-	filter: invert();
-	align-items: center;
-	justify-content: center;
-	transition-duration: .3s;
+.escolha-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--border-subtle);
+    transition: var(--trans-fast);
 }
 
-.btn_incluir:hover img {
-	transform: rotate(180deg);
+.escolha-card:hover::before {
+    background: var(--brand-gradient);
 }
 
-.text {
-	right: 0%;
-	width: 0%;
-	opacity: 0;
-	color: white;
-	font-size: 1.2em;
-	font-weight: 600;
-	position: absolute;
-	transition-duration: .3s;
+.card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 18px;
 }
 
-.btn_incluir:hover {
-	width: 125px;
-	border-radius: 40px;
-	transition-duration: .3s;
+.card-icon-box {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    background: var(--bg-surface-elevated);
+    border: 1px solid var(--border-subtle);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--brand-primary);
+    transition: var(--trans-fast);
 }
 
-.btn_incluir:hover .btn_incluir img {
-	width: 30%;
-	padding-left: 20px;
-	transition-duration: .3s;
+.escolha-card:hover .card-icon-box {
+    border-color: var(--brand-primary);
+    background: rgba(0, 229, 255, 0.1);
 }
 
-.btn_incluir:hover .text {
-	width: 70%;
-	opacity: 1;
-	padding-right: 10px;
-	transition-duration: .3s;
+.card-tag {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    padding: 3px 8px;
+    border-radius: 4px;
+    background: var(--bg-surface-elevated);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-muted);
 }
 
-.btn_incluir:active {
-	transform: translate(2px ,2px);
+.card-content h3 {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.card-content p {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.card-action-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--brand-primary);
+    transition: var(--trans-fast);
+}
+
+.escolha-card:hover .card-action-link {
+    gap: 12px;
+    color: var(--brand-primary-hover);
+}
+
+/* Seção Institucional & Mapa */
+.info-section {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 28px;
+    margin-top: 10px;
+}
+
+@media (max-width: 900px) {
+    .info-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+.content-panel {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 30px;
+}
+
+.content-panel h3 {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+}
+
+.content-panel p {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    line-height: 1.7;
+    margin-bottom: 14px;
+}
+
+.map-wrapper {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.map-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border-subtle);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.map-header h4 {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.map-frame-container iframe {
+    width: 100%;
+    height: 320px;
+    border: none;
+    filter: invert(90%) hue-rotate(180deg) brightness(85%) contrast(110%);
+}
+
+/* ==========================================================================
+   TABELAS DE DADOS (DATA GRID MODERNO)
+   ========================================================================== */
+.table-page-container {
+    max-width: 1240px;
+    margin: 32px auto;
+    padding: 0 24px;
+    width: 100%;
+    flex: 1;
+}
+
+.data-panel {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.data-panel-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border-subtle);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    background: rgba(16, 22, 31, 0.6);
+}
+
+.data-title-group h2 {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.data-count-badge {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-dim);
+}
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
 }
 
 table {
-	width: 100%;
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    text-align: left;
 }
 
-.tabela_cabecalho {
-	height: 5rem;
-	font-weight: 600;
+thead th {
+    background: #0d131b;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--border-subtle);
+    white-space: nowrap;
 }
 
-.tabela_cabecalho th {
-	padding: 30px;
-	border-bottom: 3px solid #0b8c9f;
+tbody tr {
+    border-bottom: 1px solid var(--border-subtle);
+    transition: background-color var(--trans-fast);
 }
 
-.tabela_desc {
-	cursor: pointer;
-	position: relative;
-	transition: 0.3s all;
+tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.02);
 }
 
-.tabela_desc .desc {
-	padding: 5px;
-	font-size: 1.2rem;
-	text-align: center;
-	transition: 0.2s all;
-	border-bottom: 3px solid #0b8c9f;
+tbody td {
+    padding: 16px 20px;
+    color: var(--text-primary);
+    vertical-align: middle;
 }
 
-.tabela_desc:hover > :not(td:nth-last-child(-n+1)) {
-	transform: scale(102%);
-	background-color: #9ad2c5;
+td.code-mono {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--brand-primary);
 }
 
-.tabela_desc:hover .btn_opcao {
-	opacity: 1;
+td.dim-mono {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--text-muted);
 }
 
-.btn_opcao {
-	opacity: 0;
-	width: 35px;
-	height: 29px;
-	border: none;
-	display: flex;
-	cursor: pointer;
-	margin-top: 2px;
-	overflow: hidden;
-	border-radius: 5px;
-	position: absolute;
-	align-items: center;
-	transition-duration: .3s;
-	background-color: #9ad2c5;
-	justify-content: space-between;
+.badge-tag {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    background: rgba(0, 229, 255, 0.1);
+    border: 1px solid rgba(0, 229, 255, 0.25);
+    color: var(--brand-primary);
 }
 
-.img_opcao {
-	width: 22px;
+/* Ações da Tabela */
+.action-cell {
+    white-space: nowrap;
+    text-align: right;
 }
 
-.btn_opcao {
-	right: 0;
+.action-buttons {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
 }
 
-.btn_acao img {
-	opacity: 0;
-	width: 19px;
-	padding: 8px;
-	color: white;
-	font-size: 1.2em;
-	font-weight: 600;
-	position: absolute;
-	transition-duration: .3s;
+.action-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-surface-elevated);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-muted);
+    transition: var(--trans-fast);
+    cursor: pointer;
 }
 
-.btn_opcao:hover {
-	width: 125px;
-	transition-duration: .3s;
-	background-color: white;
+.action-btn:hover {
+    border-color: var(--border-hover);
+    color: var(--text-primary);
 }
 
-.btn_opcao:hover .btn_acao {
-	padding-left: 15px;
+.action-btn.btn-view:hover {
+    color: var(--brand-primary);
+    border-color: var(--brand-primary);
 }
 
-.btn_opcao:hover .btn_acao img {
-	opacity: 1;
-	position: relative;
-	transition-duration: .3s;
+.action-btn.btn-edit:hover {
+    color: var(--accent-gold);
+    border-color: var(--accent-gold);
 }
 
-.btn_opcao:active {
-	transform: translate(2px ,2px);
+.action-btn.btn-del:hover {
+    color: var(--accent-danger);
+    border-color: var(--accent-danger);
+    background: var(--accent-danger-dim);
 }
 
-.img_view:hover{
-	border: none;
-	border-radius: 50%;
-	transform: scale(110%);
-	background-color: yellow;
+.action-btn svg {
+    width: 15px;
+    height: 15px;
+    fill: currentColor;
 }
 
-.img_edit:hover{
-	border: none;
-	border-radius: 50%;
-	transform: scale(110%);
-	background-color: #0b8c9f;
+/* ==========================================================================
+   FORMULÁRIOS DE CADASTRO E EDIÇÃO
+   ========================================================================== */
+.form-page-container {
+    max-width: 680px;
+    margin: 36px auto;
+    padding: 0 20px;
+    width: 100%;
+    flex: 1;
 }
 
-.img_delete:hover {
-	border: none;
-	border-radius: 50%;
-	transform: scale(110%);
-	background-color: red;
+.form-panel {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 36px;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
 }
 
-/*=================================================
-|||    |    5 PARTE: DETALHES DO PRODUTO    |    |||
-||+----+-----------------------------------+----+||
-|||  Autor: Crystian Ataide | Data: 05/06/2023	|||
-=================================================*/
-.prod_border {
-	width: 940px;
-	border: none;
-	margin: 110px auto;
-	padding: 30px 60px;
-	border-radius: 40px;
-	background-color: #fff;
-	box-shadow:  22px 22px 42px #cacaca, -22px -22px 42px #f6f6f6;
+.form-panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--brand-gradient);
 }
 
-.prod_border h2 {
-	font-size: 30px;
-	text-align: center;
-	margin-bottom: 30px;
+.form-panel-head {
+    margin-bottom: 28px;
+    border-bottom: 1px solid var(--border-subtle);
+    padding-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.area_titulo--prod a {
-	width: 0;
-	display: block;
-	/* justify-content: end; */
+.form-panel-head h2 {
+    font-family: var(--font-display);
+    font-size: 1.45rem;
+    font-weight: 600;
+    color: var(--text-primary);
 }
 
-.btn_voltar {
-	width: 125px;
-	height: 45px;
-	border: none;
-	right: -800px;
-	display: flex;
-	cursor: pointer;
-	overflow: hidden;
-	position: relative;
-	align-items: center;
-	border-radius: 40px;
-	background-color: red;
-	transition-duration: .3s;
-	justify-content: flex-start;
-	box-shadow: 2px 2px 10px red;
+.form-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
 }
 
-.btn_voltar img {
-	width: 20px;
-	padding: 7px;
-	display: flex;
-	filter: invert();
-	padding-left: 85px;
-	align-items: center;
-	justify-content: center;
-	transition-duration: .3s;
+@media (max-width: 600px) {
+    .form-grid-2 {
+        grid-template-columns: 1fr;
+    }
 }
 
-.text_tabela_prod {
-	/* right: 0%;
-	width: 70%; */
-	color: white;
-	font-size: 1.2em;
-	font-weight: 600;
-	position: absolute;
-	padding-left: 10px;
+.form-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-subtle);
 }
 
-.btn_voltar:active {
-	transform: translate(2px ,2px);
+/* ==========================================================================
+   DETALHES DO PRODUTO (SHOWCASE)
+   ========================================================================== */
+.product-showcase {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 36px;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 36px;
+    align-items: center;
 }
 
-.prod_border p {
-	font-size: 18px;
+@media (max-width: 768px) {
+    .product-showcase {
+        grid-template-columns: 1fr;
+    }
 }
 
-.detalhes_prod {
-	display: flex;
+.product-image-box {
+    background: #0d131b;
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 240px;
 }
 
-.perfil_produto {
-	padding: 15px;
-	border-right: 3px solid black;
+.product-image-box img {
+    max-height: 180px;
+    object-fit: contain;
+    margin-bottom: 12px;
 }
 
-.perfil_produto p {
-	color: black;
-	text-align: center;
-	padding: 15px 0;
+.product-spec-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
 }
 
-.img_perfil--prod {
-	width: 120px;
-	border-radius: 50%;
-	border: 2px solid black;
+.product-spec-item {
+    padding: 12px 16px;
+    background: var(--bg-surface-elevated);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.desc_prod {
-	padding: 15px;
+.spec-label {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
 }
 
-.desc_prod li {
-	margin-bottom: 10px;
+.spec-val {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
 }
 
-/*=================================================
-|||    |    6 PARTE: DETALHES DA PÁGINA    |    |||
-||+----+-----------------------------------+----+||
-|||  Autor: Crystian Ataide | Data: 05/06/2023	|||
-=================================================*/
-.about_border {
-	width: 940px;
-	border: none;
-	margin: 110px auto;
-	padding: 30px 60px;
-	border-radius: 40px;
-	background-color: #fff;
-	box-shadow:  22px 22px 42px #cacaca, -22px -22px 42px #f6f6f6;
+/* ==========================================================================
+   PÁGINA SOBRE (ABOUT)
+   ========================================================================== */
+.about-container {
+    max-width: 900px;
+    margin: 36px auto;
+    padding: 0 24px;
+    width: 100%;
+    flex: 1;
 }
 
-.about_border h2 {
-	font-size: 30px;
-	text-align: center;
-	margin-bottom: 30px;
+.profile-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 36px;
+    margin-bottom: 28px;
+    display: flex;
+    gap: 28px;
+    align-items: flex-start;
 }
 
-.about_border p {
-	font-size: 18px;
+@media (max-width: 650px) {
+    .profile-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
 }
 
-.text_img_about {
-	padding: 10px;
-	display: flex;
-	align-items: center;
-	border-radius: 15px;
-	border: 3px solid black;
+.profile-avatar {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    border: 2px solid var(--brand-primary);
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.25);
 }
 
-.perfil {
-	padding: 15px;
-	border-left: 3px solid black;
+.social-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 18px;
 }
 
-.perfil p {
-	color: black;
-	padding: 15px 0;
+.social-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 8px;
+    background: var(--bg-surface-elevated);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-primary);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    transition: var(--trans-fast);
 }
 
-.img_perfil {
-	width: 120px;
-	border-radius: 50%;
-	border: 2px solid black;
+.social-pill:hover {
+    border-color: var(--brand-primary);
+    background: rgba(0, 229, 255, 0.08);
+    transform: translateY(-2px);
 }
 
-.perfil ul {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
+.social-pill img {
+    width: 18px;
+    height: 18px;
 }
 
-.redes_sociais img {
-	width: 18px;
-	transition: .3s all;
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 16px;
 }
 
-.redes_sociais img:hover {
-	transform: scale(110%);
+.tech-tag-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    background: var(--bg-surface-card);
+    border: 1px solid var(--border-subtle);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text-muted);
 }
 
-.about_border li {
-	display: flex;
-	align-items: center;
-	margin-bottom: 10px;
+/* ==========================================================================
+   RODAPÉ (FOOTER)
+   ========================================================================== */
+.rodape {
+    background: var(--bg-surface);
+    border-top: 1px solid var(--border-subtle);
+    padding: 24px 20px;
+    margin-top: auto;
 }
 
-/*=================================================
-|||		|    7 PARTE: RODAPE DA PÁGINA    |     |||
-||+-----+---------------------------------+-----+||
-|||  Autor: Crystian Ataide | Data: 26/05/2023	|||
-=================================================*/
-footer {
-	bottom: 0;
-	width: 100%;
-	height: 90px;
-	display: flex;
-	padding: 20px 0;
-	align-items: center;
-	justify-content: center;
-	background: linear-gradient(135deg, #9ad2c5 0%, #9ad2c5 25%, #0b8c9f 75%, #0b8c9f 100%);
+.rodape-content {
+    max-width: 1240px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
 }
 
-.img_logo-rodap {
-	display: flex;
-	align-items: center;
-	padding-right: 30px;
-	transition: 0.3s all;
+.rodape-content p {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--text-dim);
 }
 
-.img_logo-rodap:hover {
-	transform: scale(101%);
-}
-
-.img_rodap-carrinho {
-	width: 45px;
-}
-
-.img_rodap-estacio {
-	width: 190px;
-}
-
-.descricao p {
-	font-size: 15px;
-}
-
-.contatos {
-	padding-top: 10px;
-}
-
-.logo_contato {
-	width: 20px;
-	transition: 0.3s all;
-}
-
-.logo_contato:hover {
-	transform: scale(110%);
+.rodape-content strong {
+    color: var(--text-muted);
 }

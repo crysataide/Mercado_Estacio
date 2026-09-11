@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 56" fill="none">
+  <defs>
+    <linearGradient id="logo-blue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00e5ff"/>
+      <stop offset="50%" stop-color="#0088ff"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+    <linearGradient id="logo-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#fbbf24"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Símbolo / Ícone -->
+  <g transform="translate(6, 4)">
+    <rect width="48" height="48" rx="12" fill="#10161f" stroke="#212b36" stroke-width="1.2"/>
+    
+    <!-- Geometria Capelo / Cesta Tech -->
+    <path d="M12 18 L24 12 L36 18 L24 24 Z" fill="url(#logo-blue)"/>
+    <path d="M16 21 L16 31 C16 33.5 19.5 35 24 35 C28.5 35 32 33.5 32 31 L32 21" 
+          stroke="url(#logo-blue)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M24 24 L24 35" stroke="#00e5ff" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+    <circle cx="24" cy="12" r="2.2" fill="url(#logo-gold)"/>
+  </g>
+
+  <!-- Tipografia -->
+  <g transform="translate(68, 8)">
+    <!-- MERCADO -->
+    <text x="0" y="22" font-family="'Space Grotesk', system-ui, sans-serif" font-size="20" font-weight="700" letter-spacing="1.5" fill="#f0f6fc">
+      MERCADO
+    </text>
+
+    <!-- ESTÁCIO -->
+    <text x="110" y="22" font-family="'Space Grotesk', system-ui, sans-serif" font-size="20" font-weight="600" letter-spacing="1.5" fill="#00e5ff">
+      ESTÁCIO
+    </text>
+
+    <!-- Subtítulo / Badge Mono -->
+    <rect x="0" y="28" width="168" height="15" rx="3" fill="#161f2c" stroke="#212b36" stroke-width="0.8"/>
+    <text x="6" y="39" font-family="'IBM Plex Mono', monospace" font-size="8.5" font-weight="500" letter-spacing="1.2" fill="#8b949e">
+      CAMPUS GESTÃO &amp; ESTOQUE
+    </text>
+  </g>
+</svg>

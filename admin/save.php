@@ -1,138 +1,199 @@
-<?php require('../conexao.php');
+<?php 
+require_once('top_admin.php');
+require_once('../conexao.php');
 
-    if (isset($_POST['ID_PRO'])) {
+$uploadDir = __DIR__ . '/../Imagens/produtos/';
+if (!is_dir($uploadDir)) {
+    mkdir($uploadDir, 0755, true);
+}
 
-        $id_produto     = $_POST['ID_PRO'];
-        $descri_produto = $_POST['DescPro'];
-        $categ_produto  = $_POST['CategPro'];
-        $img_produto    = 's/img';
+$acao = $_POST['acao'] ?? '';
 
-        $arquivo      = $_FILES['ImgPro']['name'];
-        $_UP['pasta'] = 'C:/xampp/htdocs/Projeto_Web/Imagens/produtos/';
+// ==========================================
+// 1. ATUALIZAR PRODUTO
+// ==========================================
+if ($acao === 'update_produto' || (isset($_POST['CodPro']) && isset($_POST['DescPro']) && !isset($_POST['CodBar']))) {
+    $codigo_produto = $_POST['CodPro'];
+    $descri_produto = $_POST['DescPro'];
+    $categ_produto  = $_POST['CategPro'];
 
-        if (move_uploaded_file($_FILES['ImgPro']['tmp_name'],$_UP['pasta'].$arquivo)) {
-            $img_produto = '/Imagens/produtos/'.$arquivo;
-        }
-        $update_produto = "UPDATE produtos SET DescPro = '".$descri_produto."', CategPro='".$categ_produto."', ImgPro='".$img_produto."' WHERE ID_PRO = $id_produto";
-
-        if (mysqli_query($conexao,$update_produto)) {
-            mysqli_close($conexao);
-            echo "<script> alert ('PRODUTO ATUALIZADO COM SUCESSO!');</script>";
-            echo "<script> window.location.href='$url/admin/list_produtos.php';</script>";
-        }
-        else {
-            echo "<script> alert ('ERRO: NÃO FOI POSSÍVEL ATUALIZAR O PRODUTO!');</script>";
-            echo "<script> window.location.href='$url/admin/list_produtos.php';</script>";
-            mysqli_close($conexao);
-        }
-    }
-    else if (isset($_POST['CodPro'])) {
-
-        $codigo_produto = $_POST['CodPro'];
-        $codigo_barras  = $_POST['CodBar'];
-        $descri_produto = $_POST['DescPro'];
-        $categ_produto  = $_POST['CategPro'];
-        $img_produto    = 's/img';
-
-        $arquivo      = $_FILES['ImgPro']['name'];
-        $_UP['pasta'] = 'C:/xampp/htdocs/Projeto_Web/Imagens/produtos/';
-
-        if (move_uploaded_file($_FILES['ImgPro']['tmp_name'],$_UP['pasta'].$arquivo)) {
-            $img_produto = '/Imagens/produtos/'.$arquivo;
-        }
-        $insert_produto = "INSERT INTO produtos (CodPro,CodBar,DescPro,CategPro,ImgPro) VALUES ('".$codigo_produto."','".$codigo_barras."','".$descri_produto."','".$categ_produto."','".$img_produto."')";
-
-        if (mysqli_query($conexao,$insert_produto)) {
-            mysqli_close($conexao);
-            echo "<script> alert ('PRODUTO CADASTRADO COM SUCESSO!');</script>";
-            echo "<script> window.location.href='$url/admin/list_produtos.php';</script>";
-        }
-        else {
-            echo "<script> alert ('ERRO: NÃO FOI POSSÍVEL CADASTRAR O PRODUTO!');</script>";
-            echo "<script> window.location.href='$url/admin/list_produtos.php';</script>";
-            mysqli_close($conexao);
+    $img_produto = null;
+    if (!empty($_FILES['ImgPro']['name']) && $_FILES['ImgPro']['error'] === UPLOAD_ERR_OK) {
+        $ext = pathinfo($_FILES['ImgPro']['name'], PATHINFO_EXTENSION);
+        $novoNome = 'prod_' . uniqid() . '.' . $ext;
+        if (move_uploaded_file($_FILES['ImgPro']['tmp_name'], $uploadDir . $novoNome)) {
+            $img_produto = '/Imagens/produtos/' . $novoNome;
         }
     }
-    else if (isset($_POST['ID_FORN'])) {
 
-        $id_fornecedor     = $_POST['ID_FORN'];
-        $name_fornecedor   = $_POST['NameForn'];
-        $email_fornecedor  = $_POST['EmailForn'];
-        $tel_fornecedor    = str_replace(' ','',str_replace(')','',str_replace('(','',str_replace('-','',$_POST['TelForn']))));
-        $doc_fornecedor    = str_replace('.','',str_replace('/','',str_replace('-','',$_POST['DocForn'])));
-        $date_fornecedor   = $_POST['DateForn'];
-        $update_fornecedor = "UPDATE fornecedores SET NameForn = '".$name_fornecedor."', EmailForn='".$email_fornecedor."', TelForn='".$tel_fornecedor."', DocForn='".$doc_fornecedor."', DateForn='".$date_fornecedor."' WHERE ID_FORN = $id_fornecedor";
+    if ($img_produto) {
+        $stmt = $conexao->prepare("UPDATE produtos SET descpro = :desc, categpro = :categ, imgpro = :img WHERE codpro = :cod");
+        $stmt->execute([
+            ':desc'  => $descri_produto,
+            ':categ' => $categ_produto,
+            ':img'   => $img_produto,
+            ':cod'   => $codigo_produto
+        ]);
+    } else {
+        $stmt = $conexao->prepare("UPDATE produtos SET descpro = :desc, categpro = :categ WHERE codpro = :cod");
+        $stmt->execute([
+            ':desc'  => $descri_produto,
+            ':categ' => $categ_produto,
+            ':cod'   => $codigo_produto
+        ]);
+    }
 
-        if (mysqli_query($conexao,$update_fornecedor)) {
-            mysqli_close($conexao);
-            echo "<script> alert ('FORNECEDOR ATUALIZADO COM SUCESSO!');</script>";
-            echo "<script> window.location.href='$url/admin/list_fornecedores.php';</script>";
-        }
-        else {
-            echo "<script> alert ('ERRO: NÃO FOI POSSÍVEL ATUALIZAR O FORNECEDOR!');</script>";
-            echo "<script> window.location.href='$url/admin/list_fornecedores.php';</script>";
-            mysqli_close($conexao);
+    echo "<script>alert('PRODUTO ATUALIZADO COM SUCESSO!'); window.location.href='list_produtos.php';</script>";
+    exit;
+}
+
+// ==========================================
+// 2. CADASTRAR PRODUTO
+// ==========================================
+else if ($acao === 'insert_produto' || (isset($_POST['CodPro']) && isset($_POST['CodBar']))) {
+    $codigo_produto = $_POST['CodPro'];
+    $codigo_barras  = $_POST['CodBar'];
+    $descri_produto = $_POST['DescPro'];
+    $categ_produto  = $_POST['CategPro'];
+    $img_produto    = 's/img';
+
+    if (!empty($_FILES['ImgPro']['name']) && $_FILES['ImgPro']['error'] === UPLOAD_ERR_OK) {
+        $ext = pathinfo($_FILES['ImgPro']['name'], PATHINFO_EXTENSION);
+        $novoNome = 'prod_' . uniqid() . '.' . $ext;
+        if (move_uploaded_file($_FILES['ImgPro']['tmp_name'], $uploadDir . $novoNome)) {
+            $img_produto = '/Imagens/produtos/' . $novoNome;
         }
     }
-    else if (isset($_POST['NameForn'])) {
 
-        $name_fornecedor   = $_POST['NameForn'];
-        $email_fornecedor  = $_POST['EmailForn'];
-        $tel_fornecedor    = str_replace(' ','',str_replace(')','',str_replace('(','',str_replace('-','',$_POST['TelForn']))));
-        $doc_fornecedor    = str_replace('.','',str_replace('/','',str_replace('-','',$_POST['DocForn'])));
-        $date_fornecedor   = $_POST['DateForn'];
-        $insert_fornecedor = "INSERT INTO fornecedores (NameForn,EmailForn,TelForn,DocForn,DateForn) VALUES ('".$name_fornecedor."','".$email_fornecedor."','".$tel_fornecedor."','".$doc_fornecedor."','".$date_fornecedor."')";
-
-        if (mysqli_query($conexao,$insert_fornecedor)) {
-            mysqli_close($conexao);
-            echo "<script> alert ('FORNECEDOR CADASTRADO COM SUCESSO!');</script>";
-            echo "<script> window.location.href='$url/admin/list_fornecedores.php';</script>";
-        }
-        else {
-            echo "<script> alert ('ERRO: NÃO FOI POSSÍVEL CADASTRAR O FORNECEDOR!');</script>";
-            echo "<script> window.location.href='$url/admin/list_fornecedores.php';</script>";
-            mysqli_close($conexao);
-        }
+    try {
+        $stmt = $conexao->prepare("INSERT INTO produtos (codpro, codbar, descpro, categpro, imgpro) VALUES (:cod, :bar, :desc, :categ, :img)");
+        $stmt->execute([
+            ':cod'   => $codigo_produto,
+            ':bar'   => $codigo_barras,
+            ':desc'  => $descri_produto,
+            ':categ' => $categ_produto,
+            ':img'   => $img_produto
+        ]);
+        echo "<script>alert('PRODUTO CADASTRADO COM SUCESSO!'); window.location.href='list_produtos.php';</script>";
+    } catch (PDOException $e) {
+        echo "<script>alert('ERRO: Não foi possível cadastrar o produto (" . addslashes($e->getMessage()) . ")'); window.location.href='list_produtos.php';</script>";
     }
-    else if (isset($_POST['ID'])) {
+    exit;
+}
 
-        $id_user     = $_POST['ID'];
-        $name_user   = $_POST['name'];
-        $username    = $_POST['username'];
-        $email_user  = $_POST['email'];
-        $update_user = "UPDATE login SET name = '".$name_user."', username='".$username."', email='".$email_user."' WHERE ID='".$id_user."'";
+// ==========================================
+// 3. ATUALIZAR FORNECEDOR
+// ==========================================
+else if ($acao === 'update_fornecedor' || isset($_POST['ID_FORN'])) {
+    $id_fornecedor    = (int)$_POST['ID_FORN'];
+    $name_fornecedor  = $_POST['NameForn'];
+    $email_fornecedor = $_POST['EmailForn'];
+    $tel_fornecedor   = preg_replace('/\D/', '', $_POST['TelForn']);
+    $doc_fornecedor   = preg_replace('/\D/', '', $_POST['DocForn']);
+    $date_fornecedor  = $_POST['DateForn'];
 
-        if (mysqli_query($conexao,$update_user)) {
-            mysqli_close($conexao);
-            echo "<script> alert ('USUÁRIO ATUALIZADO COM SUCESSO!');</script>";
-            echo "<script> window.location.href='$url/admin/list_users.php';</script>";
-        }
-        else {
-            echo "<script> alert ('ERRO: NÃO FOI POSSÍVEL ATUALIZAR O USUÁRIO!');</script>";
-            echo "<script> window.location.href='$url/admin/list_users.php';</script>";
-            mysqli_close($conexao);
-        }
+    try {
+        $stmt = $conexao->prepare("UPDATE fornecedores SET nameforn = :name, emailforn = :email, telforn = :tel, docforn = :doc, dateforn = :dt WHERE id_forn = :id");
+        $stmt->execute([
+            ':name'  => $name_fornecedor,
+            ':email' => $email_fornecedor,
+            ':tel'   => $tel_fornecedor,
+            ':doc'   => $doc_fornecedor,
+            ':dt'    => $date_fornecedor,
+            ':id'    => $id_fornecedor
+        ]);
+        echo "<script>alert('FORNECEDOR ATUALIZADO COM SUCESSO!'); window.location.href='list_fornecedores.php';</script>";
+    } catch (PDOException $e) {
+        echo "<script>alert('ERRO: Não foi possível atualizar o fornecedor.'); window.location.href='list_fornecedores.php';</script>";
     }
-    else if (isset($_POST['username'])) {
+    exit;
+}
 
-        $name_user   = $_POST['name'];
-        $username    = $_POST['username'];
-        $email_user  = $_POST['email'];
-        $password    = $_POST['password'];
-        $insert_user = "INSERT INTO login (name,username,password) VALUES ('".$name_user."','".$username."','".$password."')";
+// ==========================================
+// 4. CADASTRAR FORNECEDOR
+// ==========================================
+else if ($acao === 'insert_fornecedor' || (isset($_POST['NameForn']) && !isset($_POST['ID_FORN']))) {
+    $name_fornecedor  = $_POST['NameForn'];
+    $email_fornecedor = $_POST['EmailForn'];
+    $tel_fornecedor   = preg_replace('/\D/', '', $_POST['TelForn']);
+    $doc_fornecedor   = preg_replace('/\D/', '', $_POST['DocForn']);
+    $date_fornecedor  = $_POST['DateForn'];
 
-        if (mysqli_query($conexao,$insert_user)) {
-            mysqli_close($conexao);
-            echo "<script> alert ('USUÁRIO CADASTRADO COM SUCESSO!');</script>";
-            echo "<script> window.location.href='$url/admin/list_users.php';</script>";
-        }
-        else {
-            echo "<script> alert ('ERRO: NÃO FOI POSSÍVEL CADASTRAR O USUÁRIO!');</script>";
-            echo "<script> window.location.href='$url/admin/list_users.php';</script>";
-            mysqli_close($conexao);
-        }
+    try {
+        $stmt = $conexao->prepare("INSERT INTO fornecedores (nameforn, emailforn, telforn, docforn, dateforn) VALUES (:name, :email, :tel, :doc, :dt)");
+        $stmt->execute([
+            ':name'  => $name_fornecedor,
+            ':email' => $email_fornecedor,
+            ':tel'   => $tel_fornecedor,
+            ':doc'   => $doc_fornecedor,
+            ':dt'    => $date_fornecedor
+        ]);
+        echo "<script>alert('FORNECEDOR CADASTRADO COM SUCESSO!'); window.location.href='list_fornecedores.php';</script>";
+    } catch (PDOException $e) {
+        echo "<script>alert('ERRO: Não foi possível cadastrar o fornecedor.'); window.location.href='list_fornecedores.php';</script>";
     }
-    else {
-        echo "<script> alert('ERROR');</script>";
+    exit;
+}
+
+// ==========================================
+// 5. ATUALIZAR USUÁRIO
+// ==========================================
+else if ($acao === 'update_user' || (isset($_POST['ID']) && isset($_POST['username']))) {
+    $id_user   = (int)$_POST['ID'];
+    $name_user = $_POST['name'];
+    $username  = $_POST['username'];
+    $email_user = $_POST['email'];
+    $password  = $_POST['password'] ?? '';
+
+    try {
+        if (!empty($password)) {
+            $stmt = $conexao->prepare("UPDATE login SET name = :name, username = :username, email = :email, password = :pass WHERE id = :id");
+            $stmt->execute([
+                ':name'     => $name_user,
+                ':username' => $username,
+                ':email'    => $email_user,
+                ':pass'     => $password,
+                ':id'       => $id_user
+            ]);
+        } else {
+            $stmt = $conexao->prepare("UPDATE login SET name = :name, username = :username, email = :email WHERE id = :id");
+            $stmt->execute([
+                ':name'     => $name_user,
+                ':username' => $username,
+                ':email'    => $email_user,
+                ':id'       => $id_user
+            ]);
+        }
+        echo "<script>alert('USUÁRIO ATUALIZADO COM SUCESSO!'); window.location.href='list_users.php';</script>";
+    } catch (PDOException $e) {
+        echo "<script>alert('ERRO: Não foi possível atualizar o usuário.'); window.location.href='list_users.php';</script>";
     }
-?>
+    exit;
+}
+
+// ==========================================
+// 6. CADASTRAR USUÁRIO
+// ==========================================
+else if ($acao === 'insert_user' || (isset($_POST['username']) && !isset($_POST['ID']))) {
+    $name_user  = $_POST['name'];
+    $username   = $_POST['username'];
+    $email_user = $_POST['email'];
+    $password   = $_POST['password'];
+
+    try {
+        $stmt = $conexao->prepare("INSERT INTO login (name, username, email, password) VALUES (:name, :username, :email, :pass)");
+        $stmt->execute([
+            ':name'     => $name_user,
+            ':username' => $username,
+            ':email'    => $email_user,
+            ':pass'     => $password
+        ]);
+        echo "<script>alert('USUÁRIO CADASTRADO COM SUCESSO!'); window.location.href='list_users.php';</script>";
+    } catch (PDOException $e) {
+        echo "<script>alert('ERRO: Não foi possível cadastrar o usuário. Nome de usuário já pode estar em uso.'); window.location.href='list_users.php';</script>";
+    }
+    exit;
+} else {
+    header("Location: home.php");
+    exit;
+}

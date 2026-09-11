@@ -1,6 +1,5 @@
 <?php 
-	session_start(); 
-	session_destroy(); 
-	header("Location: http://localhost/Projeto_Web"); 
-	exit;
-?>
+session_start(); 
+session_destroy(); 
+header("Location: index.php"); 
+exit;
