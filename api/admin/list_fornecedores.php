@@ -4,7 +4,7 @@
         <title>Mercado Estácio — Fornecedores</title>
     <?php 
         require_once('top_admin.php');
-        require_once('../conexao.php');
+        require_once('api/conexao.php');
 
         $stmt = $conexao->query("SELECT * FROM fornecedores ORDER BY id_forn ASC");
         $fornecedores = $stmt->fetchAll();

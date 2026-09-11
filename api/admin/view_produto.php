@@ -4,7 +4,7 @@
         <title>Mercado Estácio — Detalhes do Produto</title>
     <?php
         require_once('top_admin.php');
-        require_once('../conexao.php');
+        require_once('api/conexao.php');
         
         $codigo_produto = $_GET['CodPro'] ?? '';
         

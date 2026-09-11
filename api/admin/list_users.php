@@ -4,7 +4,7 @@
         <title>Mercado Estácio — Operadores</title>
     <?php 
         require_once('top_admin.php');
-        require_once('../conexao.php');
+        require_once('api/conexao.php');
 
         $stmt = $conexao->query("SELECT * FROM login ORDER BY id ASC");
         $users = $stmt->fetchAll();

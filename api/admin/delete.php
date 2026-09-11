@@ -1,6 +1,6 @@
 <?php 
 require_once('top_admin.php');
-require_once('../conexao.php');
+require_once('api/conexao.php');
 
 if (isset($_GET['CodPro'])) {
     $codigo_produto = $_GET['CodPro'];

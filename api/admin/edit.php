@@ -4,7 +4,7 @@
         <title>Mercado Estácio — Editar Registro</title>
     <?php 
         require_once("top_admin.php");
-        require_once('../conexao.php');
+        require_once('api/conexao.php');
 
         $cadastro = "";
         $voltarUrl = "home.php";

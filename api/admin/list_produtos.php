@@ -4,7 +4,7 @@
         <title>Mercado Estácio — Produtos</title>
     <?php 
         require_once('top_admin.php');
-        require_once('../conexao.php');
+        require_once('api/conexao.php');
 
         $stmt = $conexao->query("SELECT * FROM produtos ORDER BY codpro ASC");
         $produtos = $stmt->fetchAll();

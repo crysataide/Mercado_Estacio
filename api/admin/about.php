@@ -2,7 +2,7 @@
 <html lang="pt-br">
     <head>
         <title>Mercado Estácio — Sobre o Projeto</title>
-    <?php require_once('../../api/admin/top_admin.php')?>
+    <?php require_once('top_admin.php')?>
         <main class="about-container">
             <!-- Card de Perfil do Desenvolvedor -->
             <section class="profile-card">

@@ -4,7 +4,7 @@
         <title>Mercado Estácio — Painel Principal</title>
     <?php 
         require_once('top_admin.php');
-        require_once('../conexao.php');
+        require_once('api/conexao.php');
 
         // Consultas rápidas para exibição de métricas nos cards
         $totalProdutos = 0;

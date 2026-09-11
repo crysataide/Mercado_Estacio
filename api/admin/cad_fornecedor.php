@@ -2,7 +2,7 @@
 <html lang="pt-br">
     <head>
         <title>Mercado Estácio — Novo Fornecedor</title>
-    <?php require_once('../../api/admin/top_admin.php')?>
+    <?php require_once('top_admin.php')?>
         <main class="form-page-container">
             <div class="form-panel">
                 <div class="form-panel-head">

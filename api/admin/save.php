@@ -1,6 +1,6 @@
 <?php 
 require_once('top_admin.php');
-require_once('../conexao.php');
+require_once('api/conexao.php');
 
 $uploadDir = __DIR__ . '/../Imagens/produtos/';
 if (!is_dir($uploadDir)) {
