@@ -1,13 +1,22 @@
 {
-    "functions": {
-        "**/*.php": {
-            "runtime": "vercel-php@0.6.0"
-        }
-    },
-    "rewrites": [
+    "builds": [
         {
-            "source": "/((?!.*\\.).*)",
-            "destination": "/index.php"
+            "src": "**/*.php",
+            "use": "@vercel/php"
+        },
+        {
+            "src": "Styles/**",
+            "use": "@vercel/static"
+        },
+        {
+            "src": "Imagens/**",
+            "use": "@vercel/static"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "/$1"
         }
     ]
 }
