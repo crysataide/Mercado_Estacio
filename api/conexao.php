@@ -1,9 +1,9 @@
 <?php
 // Carregar variáveis de ambiente locais caso o arquivo exista
 $envFiles = [
-    __DIR__ . '/.env.development.local',
-    __DIR__ . '/.env.local',
-    __DIR__ . '/.env',
+    __DIR__ . '../.env.development.local',
+    __DIR__ . '../.env.local',
+    __DIR__ . '../.env',
 ];
 
 foreach ($envFiles as $envFile) {

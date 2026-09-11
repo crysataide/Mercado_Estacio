@@ -17,19 +17,19 @@ $currentPage = basename($_SERVER['PHP_SELF']);
 ?>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-        <link rel="stylesheet" type="text/css" href="../Styles/reset.css">
-        <link rel="stylesheet" type="text/css" href="../Styles/style.css">
+        <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+        <link rel="stylesheet" type="text/css" href="../../Styles/reset.css">
+        <link rel="stylesheet" type="text/css" href="../../Styles/style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
-        <script src="../index.js"></script>
+        <script src="../../index.js"></script>
     </head>
     <body>
         <header>
             <div class="cabecalho">
                 <div class="brand-wrapper">
                     <a href="home.php" title="Mercado Estácio — Painel Principal">
-                        <img class="brand-logo-img" src="../Imagens/logo/mercado-estacio-logo.svg" alt="Mercado Estácio">
+                        <img class="brand-logo-img" src="../../Imagens/logo/mercado-estacio-logo.svg" alt="Mercado Estácio">
                     </a>
                     <div class="status-badge">
                         <span class="status-dot"></span>

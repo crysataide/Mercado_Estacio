@@ -3,16 +3,16 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" type="image/svg+xml" href="favicon.svg">
+        <link rel="icon" type="image/svg+xml" href="../favicon.svg">
         <title>Mercado Estácio — Acesso ao Sistema</title>
         <meta name="description" content="Plataforma de gestão integrada de produtos, fornecedores e estoques do Mercado Estácio.">
-        <link rel="stylesheet" type="text/css" href="Styles/reset.css">
-        <link rel="stylesheet" type="text/css" href="Styles/style.css">
+        <link rel="stylesheet" type="text/css" href="../Styles/reset.css">
+        <link rel="stylesheet" type="text/css" href="../Styles/style.css">
     </head>
     <body>
         <header class="cabecalho_inicio">
             <a href="index.php" title="Mercado Estácio - Página Inicial">
-                <img class="brand_logo" src="Imagens/logo/mercado-estacio-logo.svg" alt="Mercado Estácio">
+                <img class="brand_logo" src="../Imagens/logo/mercado-estacio-logo.svg" alt="Mercado Estácio">
             </a>
         </header>
 

@@ -2,7 +2,7 @@
 <html lang="pt-br">
     <head>
         <title>Mercado Estácio — Sobre o Projeto</title>
-    <?php require_once('top_admin.php')?>
+    <?php require_once('../../api/admin/top_admin.php')?>
         <main class="about-container">
             <!-- Card de Perfil do Desenvolvedor -->
             <section class="profile-card">
@@ -24,23 +24,23 @@
 
                     <div class="social-pills">
                         <a href="https://github.com/crysataide" target="_blank" rel="noopener" class="social-pill">
-                            <img src="../Imagens/social/github.png" alt="GitHub">
+                            <img src="../../Imagens/social/github.png" alt="GitHub">
                             <span>GitHub</span>
                         </a>
                         <a href="https://www.linkedin.com/in/crysataide" target="_blank" rel="noopener" class="social-pill">
-                            <img src="../Imagens/social/linkedin.png" alt="LinkedIn">
+                            <img src="../../Imagens/social/linkedin.png" alt="LinkedIn">
                             <span>LinkedIn</span>
                         </a>
                         <a href="https://wa.me/92981315164" target="_blank" rel="noopener" class="social-pill">
-                            <img src="../Imagens/social/whatsapp.png" alt="WhatsApp">
+                            <img src="../../Imagens/social/whatsapp.png" alt="WhatsApp">
                             <span>WhatsApp</span>
                         </a>
                         <a href="https://instagram.com/crys._.at" target="_blank" rel="noopener" class="social-pill">
-                            <img src="../Imagens/social/instagram.png" alt="Instagram">
+                            <img src="../../Imagens/social/instagram.png" alt="Instagram">
                             <span>Instagram</span>
                         </a>
                         <a href="mailto:crystianataide@gmail.com" target="_blank" rel="noopener" class="social-pill">
-                            <img src="../Imagens/social/gmail.png" alt="Gmail">
+                            <img src="../../Imagens/social/gmail.png" alt="Gmail">
                             <span>E-mail</span>
                         </a>
                     </div>

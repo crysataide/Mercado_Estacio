@@ -2,7 +2,7 @@
 <html lang="pt-br">
     <head>
         <title>Mercado Estácio — Novo Produto</title>
-    <?php require_once('top_admin.php')?>
+    <?php require_once('../../api/admin/top_admin.php')?>
         <main class="form-page-container">
             <div class="form-panel">
                 <div class="form-panel-head">
@@ -57,4 +57,4 @@
             </div>
         </main>
 
-    <?php require_once('bottom_admin.php')?>
+    <?php require_once __DIR__ . '/../../bottom_admin.php'?>
